@@ -1,0 +1,52 @@
+﻿@model ProjectAlpha.Models.Narsum
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Narsum</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Narasumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Narasumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt class="col-sm-2">
+            Daftar P2KP
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Judul</th>
+                    <th>Tanggal</th>
+                </tr>
+                @foreach (var item in Model.P2Kps)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Judul)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tanggal)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.NarsumID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
