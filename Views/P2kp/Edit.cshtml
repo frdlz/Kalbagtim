@@ -15,13 +15,28 @@
             <input type="hidden" asp-for="P2kpID" />
             <div class="form-group">
                 <label asp-for="Judul" class="control-label"></label>
-                <input asp-for="Judul" class="form-control" />
+                <textarea asp-for="Judul" class="form-control"></textarea>
                 <span asp-validation-for="Judul" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tanggal" class="control-label"></label>
                 <input asp-for="Tanggal" class="form-control" />
                 <span asp-validation-for="Tanggal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JamMulai" class="control-label"></label>
+                <input asp-for="JamMulai" class="form-control" />
+                <span asp-validation-for="JamMulai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JamSelesai" class="control-label"></label>
+                <input asp-for="JamSelesai" class="form-control" />
+                <span asp-validation-for="JamSelesai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tempat" class="control-label"></label>
+                <input asp-for="Tempat" class="form-control" />
+                <span asp-validation-for="Tempat" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NarsumID" class="control-label"></label>

@@ -158,3 +158,4 @@ C:\Users\fiord\source\repos\ProjectAlpha\obj\Debug\netcoreapp3.1\Razor\Views\Nar
 C:\Users\fiord\source\repos\ProjectAlpha\obj\Debug\netcoreapp3.1\Razor\Views\Narsums\Details.cshtml.g.cs
 C:\Users\fiord\source\repos\ProjectAlpha\obj\Debug\netcoreapp3.1\Razor\Views\Narsums\Edit.cshtml.g.cs
 C:\Users\fiord\source\repos\ProjectAlpha\obj\Debug\netcoreapp3.1\Razor\Views\Narsums\Index.cshtml.g.cs
+C:\Users\fiord\source\repos\ProjectAlpha\obj\Debug\netcoreapp3.1\Razor\Views\P2kp\Selesai.cshtml.g.cs

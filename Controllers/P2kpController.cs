@@ -61,7 +61,7 @@ namespace ProjectAlpha.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("P2kpID,Judul,Tanggal,NarsumID")] P2kp p2kp)
+        public async Task<IActionResult> Create([Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuBuat")] P2kp p2kp)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,13 @@ namespace ProjectAlpha.Controllers
                     P2kpID = p2kp.P2kpID,
                     Judul = p2kp.Judul,
                     Tanggal = p2kp.Tanggal,
-                    NarsumID = p2kp.NarsumID
+                    JamMulai = p2kp.JamMulai,
+                    JamSelesai = p2kp.JamSelesai,
+                    Tempat = p2kp.Tempat,
+                    NarsumID = p2kp.NarsumID,
+                    Status = StatusP2kp.belum,
+                    WaktuBuat = DateTime.Now
+                    
                 };
                 PopulateNarasumberDropdownList(ViewBag.NarsumID);
                 _context.Add(p2kp);
@@ -78,6 +84,58 @@ namespace ProjectAlpha.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(p2kp);
+        }
+        public async Task<IActionResult> Selesai(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var p2kp = await _context.P2kp
+
+                .FirstOrDefaultAsync(a => a.P2kpID == id);
+
+            if (p2kp == null)
+            {
+                return NotFound();
+            }
+            PopulateNarasumberDropdownList(p2kp.NarsumID);
+            return View(p2kp);
+        }
+
+        // POST: P2kp/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Selesai")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> WaktuSelesai(int id, [Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuBuat")] P2kp p2kp)
+        {
+            if (id != p2kp.P2kpID)
+            {
+                return NotFound();
+            }
+            var statusToUpdate = await _context.P2kp
+                .FirstOrDefaultAsync(a => a.P2kpID == id);
+            if (await TryUpdateModelAsync<P2kp>(statusToUpdate,
+                "", a => a.WaktuSelesai, a => a.Status))
+            {
+                try
+                {
+                    statusToUpdate.WaktuSelesai = DateTime.Now;
+                    statusToUpdate.Status = StatusP2kp.selesai;
+                     
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    ModelState.AddModelError("", "Tidak bisa merubah data." +
+                        "Silahkan hubungi Admin.");
+                }
+            }
+            PopulateNarasumberDropdownList(statusToUpdate.NarsumID);
+            return View(statusToUpdate);
         }
 
         // GET: P2kp/Edit/5
@@ -105,7 +163,7 @@ namespace ProjectAlpha.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditP2kp(int id, [Bind("P2kpID,Judul,Tanggal,NarNarsumIDasumber")] P2kp p2kp)
+        public async Task<IActionResult> EditP2kp(int id, [Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuBuat")] P2kp p2kp)
         {
             if (id != p2kp.P2kpID)
             {
@@ -114,7 +172,7 @@ namespace ProjectAlpha.Controllers
             var p2kpToUpdate = await _context.P2kp
                 .FirstOrDefaultAsync(a => a.P2kpID == id);
             if (await TryUpdateModelAsync<P2kp>(p2kpToUpdate,
-                "", a => a.Judul, a => a.Tanggal, a => a.NarsumID))
+                "", a => a.Judul, a => a.Tanggal,a => a.JamMulai,a => a.JamSelesai,a => a.Tempat, a => a.NarsumID))
             {
                 try
                 {

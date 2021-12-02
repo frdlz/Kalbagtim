@@ -19,8 +19,21 @@
                 @Html.DisplayNameFor(model => model.Tanggal)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.JamMulai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JamSelesai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tempat)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NarsumID)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -34,12 +47,30 @@
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.JamMulai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JamSelesai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tempat)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Narsum.Narasumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.P2kpID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.P2kpID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.P2kpID">Delete</a>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @if (item.Status == StatusP2kp.belum)
+                {
+                    <a asp-action="Selesai" asp-route-id="@item.P2kpID">Selesai</a>
+
+                    <a asp-action="Edit" asp-route-id="@item.P2kpID">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.P2kpID">Delete</a>
+                }
+                <a asp-action="Details" asp-route-id="@item.P2kpID">Details</a>
             </td>
         </tr>
 }
