@@ -1,0 +1,34 @@
+﻿@model ProjectAlpha.Models.P2kp
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Materi P2KP</th>
+                    <th>Tanggal</th>
+                    <th>Narasumber</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.ImageP2kp)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p2Kp.Judul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p2Kp.Tanggal)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.p2Kp.Narsum.Narasumber)
+                </td>
+
+                <td>
+                    <a href="~/ImageP2kp/@(item.ImageName).jpg" target="_blank" asp-append-version="true">Image</a>
+                </td>
+            </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>

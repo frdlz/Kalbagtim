@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ProjectAlpha.Models.P2kp>
+
+@{ ViewData["Title"] = "Index"; }
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/lib/datatables/datatables.css">
+    <link rel="stylesheet" href="~/lib/datatables/datatables.min.css" />
+    <script type="text/javascript" charset="utf8" src="~/lib/datatables/datatables.js"></script>
+</head>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="display compact table-bordered wrap" id="datatable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Judul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tanggal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JamMulai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JamSelesai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tempat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NarsumID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Judul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanggal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JamMulai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JamSelesai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tempat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Narsum.Narasumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NarsumID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NarsumID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NarsumID">Delete</a>
+            </td>
+        </tr>}
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTable').dataTable();
+    });
+</script>

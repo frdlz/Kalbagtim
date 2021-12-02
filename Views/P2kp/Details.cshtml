@@ -46,7 +46,19 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Narsum.Narasumber)
         </dd>
+        
+        
+        
     </dl>
+</div>
+<div>
+    <div>
+        @await Component.InvokeAsync("MateriP2kp", new { P2kpID = @Model.P2kpID })
+    </div>
+     <div>
+                @await Component.InvokeAsync("GalleryImage", new { P2kpID = @Model.P2kpID })
+
+     </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.P2kpID">Edit</a> |

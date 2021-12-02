@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8G4wMm4JwbnD0Pvhn3tJUmyL/8ovBwY+yfaYrVXiisGfmm9mHnJaOXa3FCX/LndEaHGYLp7/+YTRtQHZ+WB3ng==",
+  "dgSpecHash": "H1eOh3SL326ZoBxrjAlddPk319dNjf6tdRRsM7oJ45T/L2WcN2suPpBwyuip87Fnz5afdXXNVbB0CgOVgMKitg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fiord\\source\\repos\\ProjectAlpha\\ProjectAlpha.csproj",
+  "projectFilePath": "C:\\Users\\fiord\\Downloads\\Kalbagtim-main\\ProjectAlpha.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fiord\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\fiord\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

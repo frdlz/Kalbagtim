@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectAlpha.Models.P2KP.ViewModel;
+using ProjectAlpha.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,24 +13,30 @@ namespace ProjectAlpha.Models
         public int P2kpID { get; set; }
 
         [Display(Name = "Materi")]
+        [Required]
         public string Judul { get; set; }
 
         [Display(Name = "Tanggal")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Required]
         public DateTime Tanggal { get; set; }
 
         [Display(Name = "Mulai")]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd:MM:yyyy}")]
+        [Required]
         public DateTime JamMulai { get; set; }
 
         [Display(Name = "Selesai")]
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm:ss}")]
+        [Required]
+        
         public DateTime JamSelesai { get; set; }
 
         [Display(Name = "Tempat")]
+        [Required]
         public string Tempat { get; set; }
 
         public StatusP2kp Status { get; set; }
@@ -38,9 +46,12 @@ namespace ProjectAlpha.Models
 
 
         [Display(Name = "Narasumber")]
+        [Required]
         public int NarsumID { get; set; }
 
         public Narsum Narsum { get; set; }
+        public ICollection<ImageP2kp> ImageP2kp { get; set; }
+        public ICollection<MateriP2kp> MateriP2Kp { get; set; }
     }
     public enum StatusP2kp
     {

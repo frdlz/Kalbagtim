@@ -1,31 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Data;
 using ProjectAlpha.Models;
+using ProjectAlpha.Models.P2KP.ViewModel;
+using ProjectAlpha.Models.ViewModel;
 
 namespace ProjectAlpha.Controllers
 {
     public class P2kpController : Controller
     {
         private readonly ProjectAlphaContext _context;
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public P2kpController(ProjectAlphaContext context)
+        public P2kpController(ProjectAlphaContext context, IHostingEnvironment environment)
         {
             _context = context;
+            hostingEnvironment = environment;
         }
-
-        // GET: P2kp
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexDatatables()
         {
+            var narsum = _context.P2kp
+                .Include(a => a.Narsum)
+                .AsNoTracking();
+            return View(await narsum.ToListAsync());
+        }
+        // GET: P2kp
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
+        {
+            ViewData["MateriSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParam"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentSort"] = sortOrder;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             var p2kp = _context.P2kp
                 .Include(a => a.Narsum)
                 .AsNoTracking();
-            return View(await p2kp.ToListAsync());
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                p2kp = p2kp.Where(a => a.Judul.Contains(searchString) || a.Narsum.Narasumber.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    p2kp = p2kp.OrderByDescending(s => s.Judul);
+                    break;
+                case "Date":
+                    p2kp = p2kp.OrderBy(a => a.Tanggal);
+                    break;
+                case "date_desc":
+                    p2kp = p2kp.OrderByDescending(a => a.Tanggal);
+                    break;
+                default:
+                    p2kp = p2kp.OrderBy(a => a.Tanggal);
+                    break;
+
+            }
+            int pageSize = 3;
+
+            return View(await PaginatedList<P2kp>.CreateAsync(p2kp.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: P2kp/Details/5
@@ -231,6 +281,123 @@ namespace ProjectAlpha.Controllers
                                orderby d.NarsumID
                                select d;
             ViewBag.NarsumID = new SelectList(narsumsQuery.AsNoTracking(), "NarsumID", "Narasumber", selectedNarsum);
+        }
+        private void PopulateJenisFileDropdownList(object selectedFile = null)
+        {
+            var filesQuery = from d in _context.JenisFile
+                               orderby d.JenisFileID
+                               select d;
+            ViewBag.JenisFileID = new SelectList(filesQuery.AsNoTracking(), "JenisFileID", "FileType", selectedFile);
+        }
+        [HttpGet("P2kp/Image/{Id}")]
+        public async Task<IActionResult> Image(int? id)
+        {
+            var imagep2kp = new ImageP2kpFormViewModel { P2kpID = id.Value };
+
+            return View(imagep2kp);
+        }
+
+        [HttpPost("P2kp/Image/{Id}")]
+        public async Task<IActionResult> CreateImageMonita([Bind("IDImageP2kp,ImageName,UploadDate,Image,P2kpID")] ImageP2kpFormViewModel imagep2kpform)
+        {
+
+            var xcv = string.Format(@"{0}", Guid.NewGuid());
+            if (ModelState.IsValid)
+            {
+                ImageP2kp imagep2kp = new ImageP2kp
+                {
+                    ImageP2kpID = imagep2kpform.IDImageP2kp,
+                    P2kpID = imagep2kpform.P2kpID,
+                    UploadDate = DateTime.Now,
+
+                    ImageName = xcv
+                };
+
+
+
+                var formFile = imagep2kpform.Image;
+                if (formFile == null || formFile.Length == 0)
+                {
+                    ModelState.AddModelError("", "Uploaded file is empty or null.");
+                    return View(viewName: "Index");
+                }
+                var uploadsRootFolder = Path.Combine(hostingEnvironment.WebRootPath, "ImageP2kp");
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+                var filePath = Path.Combine(uploadsRootFolder, xcv + "." + "jpg");
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await formFile.CopyToAsync(fileStream).ConfigureAwait(false);
+                }
+
+                _context.Add(imagep2kp);
+                await _context.SaveChangesAsync();
+
+                return View("Image", new ImageP2kpFormViewModel
+                {
+                    P2kpID = imagep2kp.P2kpID,
+                });
+            }
+
+            return View(imagep2kpform);
+        }
+        [HttpGet("P2kp/Materi/{Id}")]
+        public async Task<IActionResult> Materi(int? id)
+        {
+            var materip2kp = new MateriP2kpFormViewModel { P2kpID = id.Value };
+            PopulateJenisFileDropdownList();
+            return View(materip2kp);
+        }
+
+        [HttpPost("P2kp/Materi/{Id}")]
+        public async Task<IActionResult> CreateMateriMonita([Bind("IDMateriP2kp,ImageName,UploadDate,File,FileType,P2kpID")] MateriP2kpFormViewModel materip2kpform)
+        {
+
+            var xcv = string.Format(@"{0}", Guid.NewGuid());
+            if (ModelState.IsValid)
+            {
+                MateriP2kp materip2kp = new MateriP2kp
+                {
+                    MateriP2kpID = materip2kpform.IDMateriP2kp,
+                    P2kpID = materip2kpform.P2kpID,
+                    UploadDate = DateTime.Now,
+                    JenisFIleID = materip2kpform.JenisFIleID,
+                    MateriName = xcv
+                };
+
+
+                var namafile = materip2kp.jenisFile.FileType;
+                var formFile = materip2kpform.File;
+                if (formFile == null || formFile.Length == 0)
+                {
+                    ModelState.AddModelError("", "Uploaded file is empty or null.");
+                    return View(viewName: "Index");
+                }
+                var uploadsRootFolder = Path.Combine(hostingEnvironment.WebRootPath, "MateriP2kp");
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+                var filePath = Path.Combine(uploadsRootFolder, xcv + "." + namafile);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await formFile.CopyToAsync(fileStream).ConfigureAwait(false);
+                }
+
+                _context.Add(materip2kp);
+                await _context.SaveChangesAsync();
+
+                return View("Materi", new MateriP2kpFormViewModel
+                {
+                    P2kpID = materip2kp.P2kpID,
+                });
+            }
+            PopulateJenisFileDropdownList(materip2kpform.JenisFIleID);
+            return View(materip2kpform);
         }
     }
 }

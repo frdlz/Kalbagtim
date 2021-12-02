@@ -1,0 +1,10 @@
+﻿@model ProjectAlpha.Models.P2kp
+
+<div class="card">
+    <div class="card-body">
+        @foreach (var item in Model.ImageP2kp)
+        {
+            <img class="card-img-top" src="~/ImageP2kp/@(item.ImageName).jpg" height="555" width="880" />
+        }
+    </div>
+</div>

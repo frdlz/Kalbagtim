@@ -1,0 +1,29 @@
+﻿@model ProjectAlpha.Models.ViewModel.ImageP2kpFormViewModel
+
+@{ 
+    ViewData["Title"] = "Image";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Image" asp-controller="P2kp" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input hidden asp-for="P2kpID" class="form-control" />
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-info" />
+                </div>
+            </form>
+            <hr />
+            <div>
+                @await Component.InvokeAsync("ImageP2kp", new { P2kpID = @Model.P2kpID })
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -37,6 +37,37 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("Narsum");
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.P2KP.ViewModel.MateriP2kp", b =>
+                {
+                    b.Property<int>("MateriP2kpID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("File")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("JenisFIleID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MateriName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("P2kpID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MateriP2kpID");
+
+                    b.HasIndex("JenisFIleID");
+
+                    b.HasIndex("P2kpID");
+
+                    b.ToTable("MateriP2kp");
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.P2kp", b =>
                 {
                     b.Property<int>("P2kpID")
@@ -78,11 +109,76 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("P2kp");
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.ViewModel.ImageP2kp", b =>
+                {
+                    b.Property<int>("ImageP2kpID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("P2kpID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ImageP2kpID");
+
+                    b.HasIndex("P2kpID");
+
+                    b.ToTable("ImageP2kp");
+                });
+
+            modelBuilder.Entity("ProjectAlpha.Models.ViewModel.JenisFile", b =>
+                {
+                    b.Property<int>("JenisFileID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("JenisFileID");
+
+                    b.ToTable("JenisFile");
+                });
+
+            modelBuilder.Entity("ProjectAlpha.Models.P2KP.ViewModel.MateriP2kp", b =>
+                {
+                    b.HasOne("ProjectAlpha.Models.ViewModel.JenisFile", "jenisFile")
+                        .WithMany("MateriP2Kp")
+                        .HasForeignKey("JenisFIleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectAlpha.Models.P2kp", "p2Kp")
+                        .WithMany("MateriP2Kp")
+                        .HasForeignKey("P2kpID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.P2kp", b =>
                 {
                     b.HasOne("ProjectAlpha.Models.Narsum", "Narsum")
                         .WithMany("P2Kps")
                         .HasForeignKey("NarsumID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProjectAlpha.Models.ViewModel.ImageP2kp", b =>
+                {
+                    b.HasOne("ProjectAlpha.Models.P2kp", "p2Kp")
+                        .WithMany("ImageP2kp")
+                        .HasForeignKey("P2kpID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
