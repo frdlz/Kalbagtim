@@ -26,10 +26,10 @@ namespace ProjectAlpha.Controllers
         }
         public async Task<IActionResult> IndexDatatables()
         {
-            var narsum = _context.P2kp
+            var p2kp = _context.P2kp
                 .Include(a => a.Narsum)
                 .AsNoTracking();
-            return View(await narsum.ToListAsync());
+            return View(await p2kp.ToListAsync());
         }
         // GET: P2kp
         public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
@@ -154,12 +154,10 @@ namespace ProjectAlpha.Controllers
             return View(p2kp);
         }
 
-        // POST: P2kp/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost, ActionName("Selesai")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> WaktuSelesai(int id, [Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuBuat")] P2kp p2kp)
+        public async Task<IActionResult> WaktuSelesai(int id, [Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuSelesai")] P2kp p2kp)
         {
             if (id != p2kp.P2kpID)
             {
@@ -298,7 +296,7 @@ namespace ProjectAlpha.Controllers
         }
 
         [HttpPost("P2kp/Image/{Id}")]
-        public async Task<IActionResult> CreateImageMonita([Bind("IDImageP2kp,ImageName,UploadDate,Image,P2kpID")] ImageP2kpFormViewModel imagep2kpform)
+        public async Task<IActionResult> CreateImageP2kp([Bind("IDImageP2kp,ImageName,UploadDate,Image,P2kpID")] ImageP2kpFormViewModel imagep2kpform)
         {
 
             var xcv = string.Format(@"{0}", Guid.NewGuid());
@@ -348,7 +346,7 @@ namespace ProjectAlpha.Controllers
         public async Task<IActionResult> Materi(int? id)
         {
             var materip2kp = new MateriP2kpFormViewModel { P2kpID = id.Value };
-            PopulateJenisFileDropdownList();
+           
             return View(materip2kp);
         }
 
