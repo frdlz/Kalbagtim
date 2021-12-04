@@ -17,14 +17,15 @@ namespace ProjectAlpha.Models
         public string Judul { get; set; }
 
         [Display(Name = "Tanggal")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}")]
+
         [Required]
         public DateTime Tanggal { get; set; }
 
         [Display(Name = "Mulai")]
         [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd:MM:yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm:ss}")]
         [Required]
         public DateTime JamMulai { get; set; }
 

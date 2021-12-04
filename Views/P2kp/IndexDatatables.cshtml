@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<ProjectAlpha.Models.P2kp>
 
 @{ ViewData["Title"] = "Index"; }
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="~/lib/datatables/datatables.css">
-    <link rel="stylesheet" href="~/lib/datatables/datatables.min.css" />
-    <script type="text/javascript" charset="utf8" src="~/lib/datatables/datatables.js"></script>
-</head>
-<h1>Index</h1>
 
+<h1>Index</h1>
+<head>
+    <script type="text/javascript" charset="utf8" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+
+   
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+
+</head>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="display compact table-bordered wrap" id="datatable">
+<table class="display compact table-bordered wrap" style="width:100%" id="dataTable">
     <thead>
         <tr>
             <th>
@@ -61,15 +62,18 @@
                 @Html.DisplayFor(modelItem => item.Narsum.Narasumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.NarsumID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NarsumID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NarsumID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.P2kpID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.P2kpID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.P2kpID">Delete</a>
             </td>
-        </tr>}
+        </tr>
+}
     </tbody>
 </table>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dataTable').dataTable();
+        $("#dataTable").dataTable({
+           
+        });
     });
 </script>

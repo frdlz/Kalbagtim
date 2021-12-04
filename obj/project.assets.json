@@ -8481,11 +8481,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fiord\\Downloads\\Kalbagtim-main\\ProjectAlpha.csproj",
+      "projectUniqueName": "C:\\Users\\fiord\\Documents\\GitHub\\ProjectAlpha\\Kalbagtim\\ProjectAlpha.csproj",
       "projectName": "ProjectAlpha",
-      "projectPath": "C:\\Users\\fiord\\Downloads\\Kalbagtim-main\\ProjectAlpha.csproj",
+      "projectPath": "C:\\Users\\fiord\\Documents\\GitHub\\ProjectAlpha\\Kalbagtim\\ProjectAlpha.csproj",
       "packagesPath": "C:\\Users\\fiord\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fiord\\Downloads\\Kalbagtim-main\\obj\\",
+      "outputPath": "C:\\Users\\fiord\\Documents\\GitHub\\ProjectAlpha\\Kalbagtim\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
