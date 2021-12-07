@@ -10,8 +10,8 @@ using ProjectAlpha.Data;
 namespace ProjectAlpha.Migrations
 {
     [DbContext(typeof(ProjectAlphaContext))]
-    [Migration("20211202224758_newdate")]
-    partial class newdate
+    [Migration("20211205163711_nenenenrttr")]
+    partial class nenenenrttr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,7 +84,6 @@ namespace ProjectAlpha.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Judul")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NarsumID")
@@ -97,7 +96,6 @@ namespace ProjectAlpha.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Tempat")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WaktuBuat")

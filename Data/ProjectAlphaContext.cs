@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Models;
 using ProjectAlpha.Models.ViewModel;
 
 namespace ProjectAlpha.Data
 {
-    public class ProjectAlphaContext : DbContext
+    public class ProjectAlphaContext : IdentityDbContext<AppUser>
     {
         public ProjectAlphaContext (DbContextOptions<ProjectAlphaContext> options)
             : base(options)

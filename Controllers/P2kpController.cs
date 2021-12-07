@@ -17,9 +17,9 @@ namespace ProjectAlpha.Controllers
     public class P2kpController : Controller
     {
         private readonly ProjectAlphaContext _context;
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public P2kpController(ProjectAlphaContext context, IHostingEnvironment environment)
+        public P2kpController(ProjectAlphaContext context, IWebHostEnvironment environment)
         {
             _context = context;
             hostingEnvironment = environment;
@@ -157,7 +157,7 @@ namespace ProjectAlpha.Controllers
        
         [HttpPost, ActionName("Selesai")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> WaktuSelesai(int id, [Bind("P2kpID,Judul,Tanggal,JamMulai,JamSelesai,Tempat,NarsumID,Status,WaktuSelesai")] P2kp p2kp)
+        public async Task<IActionResult> WaktuSelesai(int id, [Bind("P2kpID,Status,WaktuSelesai")] P2kp p2kp)
         {
             if (id != p2kp.P2kpID)
             {
@@ -288,7 +288,7 @@ namespace ProjectAlpha.Controllers
             ViewBag.JenisFileID = new SelectList(filesQuery.AsNoTracking(), "JenisFileID", "FileType", selectedFile);
         }
         [HttpGet("P2kp/Image/{Id}")]
-        public async Task<IActionResult> Image(int? id)
+        public IActionResult Image(int? id)
         {
             var imagep2kp = new ImageP2kpFormViewModel { P2kpID = id.Value };
 
@@ -343,10 +343,10 @@ namespace ProjectAlpha.Controllers
             return View(imagep2kpform);
         }
         [HttpGet("P2kp/Materi/{Id}")]
-        public async Task<IActionResult> Materi(int? id)
+        public IActionResult Materi(int? id)
         {
             var materip2kp = new MateriP2kpFormViewModel { P2kpID = id.Value };
-           
+
             return View(materip2kp);
         }
 

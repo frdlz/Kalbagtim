@@ -10,8 +10,8 @@ using ProjectAlpha.Data;
 namespace ProjectAlpha.Migrations
 {
     [DbContext(typeof(ProjectAlphaContext))]
-    [Migration("20211202052029_addjenisfilefefrgghgh")]
-    partial class addjenisfilefefrgghgh
+    [Migration("20211205163244_nenenenrt")]
+    partial class nenenenrt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,11 +49,8 @@ namespace ProjectAlpha.Migrations
                     b.Property<string>("File")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FileType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JenisFIleID")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("JenisFIleID")
+                        .HasColumnType("int");
 
                     b.Property<string>("MateriName")
                         .HasColumnType("nvarchar(max)");
@@ -65,6 +62,8 @@ namespace ProjectAlpha.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MateriP2kpID");
+
+                    b.HasIndex("JenisFIleID");
 
                     b.HasIndex("P2kpID");
 
@@ -85,6 +84,7 @@ namespace ProjectAlpha.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Judul")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NarsumID")
@@ -97,6 +97,7 @@ namespace ProjectAlpha.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Tempat")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WaktuBuat")
@@ -138,8 +139,29 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("ImageP2kp");
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.ViewModel.JenisFile", b =>
+                {
+                    b.Property<int>("JenisFileID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("JenisFileID");
+
+                    b.ToTable("JenisFile");
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.P2KP.ViewModel.MateriP2kp", b =>
                 {
+                    b.HasOne("ProjectAlpha.Models.ViewModel.JenisFile", "jenisFile")
+                        .WithMany("MateriP2Kp")
+                        .HasForeignKey("JenisFIleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProjectAlpha.Models.P2kp", "p2Kp")
                         .WithMany("MateriP2Kp")
                         .HasForeignKey("P2kpID")

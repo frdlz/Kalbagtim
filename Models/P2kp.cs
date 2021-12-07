@@ -13,7 +13,7 @@ namespace ProjectAlpha.Models
         public int P2kpID { get; set; }
 
         [Display(Name = "Materi")]
-        [Required]
+        
         public string Judul { get; set; }
 
         [Display(Name = "Tanggal")]
@@ -36,7 +36,7 @@ namespace ProjectAlpha.Models
         public DateTime JamSelesai { get; set; }
 
         [Display(Name = "Tempat")]
-        [Required]
+      
         public string Tempat { get; set; }
 
         public StatusP2kp Status { get; set; }

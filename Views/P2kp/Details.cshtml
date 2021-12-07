@@ -52,11 +52,10 @@
     </dl>
 </div>
 <div>
-    <div>
-        @await Component.InvokeAsync("MateriP2kp", new { P2kpID = @Model.P2kpID })
-    </div>
+   
+    <hr />
      <div>
-                @await Component.InvokeAsync("GalleryImage", new { P2kpID = @Model.P2kpID })
+          @await Component.InvokeAsync("GalleryImage", new { P2kpID = @Model.P2kpID })
 
      </div>
 </div>

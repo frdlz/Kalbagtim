@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Data;
+using ProjectAlpha.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjectAlpha
 {
@@ -26,9 +28,10 @@ namespace ProjectAlpha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+           
             services.AddDbContext<ProjectAlphaContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ProjectAlphaContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<ProjectAlphaContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +51,7 @@ namespace ProjectAlpha
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

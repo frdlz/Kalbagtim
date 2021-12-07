@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211202052029_addjenisfilefefrgghgh.cs" />
+    <Compile Remove="Migrations\20211202052029_addjenisfilefefrgghgh.Designer.cs" />
+    <Compile Remove="Migrations\20211202052052_addjenisfilefefrgghghf.cs" />
+    <Compile Remove="Migrations\20211202052052_addjenisfilefefrgghghf.Designer.cs" />
+    <Compile Remove="Migrations\20211202052211_Initial.cs" />
+    <Compile Remove="Migrations\20211202052211_Initial.Designer.cs" />
     <Compile Remove="Migrations\20211202053915_ge.cs" />
     <Compile Remove="Migrations\20211202053915_ge.Designer.cs" />
     <Compile Remove="Migrations\20211202054105_gef.cs" />
@@ -19,9 +25,23 @@
     <Compile Remove="Migrations\20211202054629_new234.Designer.cs" />
     <Compile Remove="Migrations\20211202054728_new234r.cs" />
     <Compile Remove="Migrations\20211202054728_new234r.Designer.cs" />
+    <Compile Remove="Migrations\20211202054900_newww.cs" />
+    <Compile Remove="Migrations\20211202054900_newww.Designer.cs" />
+    <Compile Remove="Migrations\20211202224937_newdate.cs" />
+    <Compile Remove="Migrations\20211202224937_newdate.Designer.cs" />
+    <Compile Remove="Migrations\20211205163048_nenenenr.cs" />
+    <Compile Remove="Migrations\20211205163048_nenenenr.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Account\AccessDenied.cshtml" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\Login1.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
       <PrivateAssets>all</PrivateAssets>
