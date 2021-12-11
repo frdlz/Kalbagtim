@@ -522,3 +522,4 @@ C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Acco
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login1.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Update.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Login_Layout.cshtml.g.cs

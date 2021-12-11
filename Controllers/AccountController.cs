@@ -55,7 +55,7 @@ namespace WBKNET.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Privacy", "Home");
         }
         [AllowAnonymous]
         public IActionResult AccessDenied()

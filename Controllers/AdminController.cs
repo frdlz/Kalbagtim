@@ -86,15 +86,15 @@ namespace ProjectAlpha.Controllers
                 }
 
                 else
-                    ModelState.AddModelError("", "NIP tidak boleh kosong");
+                    ModelState.AddModelError("", "Password tidak boleh kosong");
                 if (!string.IsNullOrEmpty(jabatan))
                     user.Jabatan = jabatan;
                 else
-                    ModelState.AddModelError("", "jabatan tidak boleh kosong");
+                    ModelState.AddModelError("", "Jabatan tidak boleh kosong");
                 if (!string.IsNullOrEmpty(Penempatan))
                     user.Penempatan = Penempatan;
                 else
-                    ModelState.AddModelError("", "jabatan tidak boleh kosong");
+                    ModelState.AddModelError("", "Penempatan tidak boleh kosong");
                 if (validEmail != null && validPass != null && validEmail.Succeeded && validPass.Succeeded && !string.IsNullOrEmpty(jabatan))
                 {
                     IdentityResult result = await userManager.UpdateAsync(user);
