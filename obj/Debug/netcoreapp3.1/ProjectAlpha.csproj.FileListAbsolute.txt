@@ -518,3 +518,7 @@ C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\ProjectAlpha.Mvc
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\staticwebassets\ProjectAlpha.StaticWebAssets.xml
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Create.cshtml.g.cs
 C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login1.cshtml.g.cs
+C:\Users\XCV\Documents\GitHub\Kalbagtim\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Update.cshtml.g.cs
