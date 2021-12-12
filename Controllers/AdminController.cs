@@ -50,6 +50,7 @@ namespace ProjectAlpha.Controllers
             }
             return View(user);
         }
+       
         public async Task<IActionResult> Update(string id)
         {
             AppUser user = await userManager.FindByIdAsync(id);
@@ -58,6 +59,9 @@ namespace ProjectAlpha.Controllers
             else
                 return RedirectToAction("Index");
         }
+
+        [HttpPost]
+       
         public async Task<IActionResult> Update(string id, string email, string password, string jabatan, string Penempatan)
         {
             AppUser user = await userManager.FindByIdAsync(id);

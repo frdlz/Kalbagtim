@@ -6,10 +6,18 @@
     </head>
 
 <a asp-action="Create" class="btn btn-secondary">Create a User</a>
-
-<table id="dataTable" class="display compact table-bordered wrap">
+<div class="container-fluid">
+    <table id="dataTable" class="display compact table-bordered wrap table-responsive-sm">
     <thead>
-        <tr><th>ID</th><th>Name</th><th>Jabatan</th><th>Email</th><th>Pass</th><th>Penempatan</th><th>Update</th><th>Delete</th></tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Penempatan</th>
+            <th>Jabatan</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (AppUser user in Model)
@@ -17,10 +25,9 @@
             <tr>
                 <td>@user.Id</td>
                 <td>@user.UserName</td>
-                <td>@user.PasswordHash</td>
-                <td>@user.Jabatan</td>
-                <td>@user.Penempatan</td>
                 <td>@user.Email</td>
+                <td>@user.Penempatan</td>
+                <td>@user.Jabatan</td>
                 <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">Update</a></td>
                 <td>
                     <form asp-action="Delete" asp-route-id="@user.Id" method="post">
@@ -33,10 +40,12 @@
         }
     </tbody>
 </table>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#dataTable").dataTable({
-            "scrollX": true
+            
         });
     });
 </script>
