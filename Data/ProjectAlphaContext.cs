@@ -12,7 +12,7 @@ namespace ProjectAlpha.Data
     public class ProjectAlphaContext : IdentityDbContext<AppUser>
     {
         public ProjectAlphaContext (DbContextOptions<ProjectAlphaContext> options)
-            : base(options)
+            : base(options)     
         {
         }
 

@@ -58,7 +58,7 @@ namespace WBKNET.Controllers
             return RedirectToAction("Privacy", "Home");
         }
         [AllowAnonymous]
-        public IActionResult AccessDenied()
+        public IActionResult AccessDenied() 
         {
             return View();
         }

@@ -23,8 +23,11 @@ namespace ProjectAlpha.Controllers
         {
             return View(userManager.Users);
         }
-        public ViewResult Create() => View();
-
+       
+        public IActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
