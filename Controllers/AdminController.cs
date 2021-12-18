@@ -55,13 +55,13 @@ namespace ProjectAlpha.Controllers
         }
        
         public async Task<IActionResult> Update(string id)
-        {
-            AppUser user = await userManager.FindByIdAsync(id);
-            if (user != null)
-                return View(user);
-            else
-                return RedirectToAction("Index");
-        }
+            {
+                AppUser user = await userManager.FindByIdAsync(id);
+                if (user != null)
+                    return View(user);
+                else
+                    return RedirectToAction("Index");
+            }
 
         [HttpPost]
        
@@ -97,7 +97,7 @@ namespace ProjectAlpha.Controllers
                 if (!string.IsNullOrEmpty(jabatan))
                     user.Jabatan = jabatan;
                 else
-                    ModelState.AddModelError("", "Jabatan tidak boleh kosong");
+                    ModelState.AddModelError("", "Jabatan tidak boleh kosong"); 
                 if (!string.IsNullOrEmpty(Penempatan))
                     user.Penempatan = Penempatan;
                 else

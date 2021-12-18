@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProjectAlpha.Models;
 
 
-namespace WBKNET.Controllers
+namespace ProjectAlpha.Controllers
 {
 
     public class AccountController : Controller
