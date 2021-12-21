@@ -45,7 +45,8 @@ namespace ProjectAlpha.Controllers
                     await signInManager.SignOutAsync();
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(appUser, login.Password, false, false);
                     if (result.Succeeded)
-                        return RedirectToAction("Index", "Home"); ;
+                        return RedirectToAction("Index", "Home");
+                    ;
                 }
                 ModelState.AddModelError(nameof(login.Email), "Login Failed: Invalid email or password");
             }
