@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProjectAlpha.Models;
 using System.Threading.Tasks;
 
 namespace ProjectAlpha.Controllers
 {
+    
     public class AdminController : Controller
     {
         private UserManager<AppUser> userManager;
@@ -19,6 +21,7 @@ namespace ProjectAlpha.Controllers
             passwordValidator = passwordVal;
             userValidator = userValid;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View(userManager.Users);
@@ -53,7 +56,7 @@ namespace ProjectAlpha.Controllers
             }
             return View(user);
         }
-       
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id)
             {
                 AppUser user = await userManager.FindByIdAsync(id);
@@ -62,7 +65,7 @@ namespace ProjectAlpha.Controllers
                 else
                     return RedirectToAction("Index");
             }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
        
         public async Task<IActionResult> Update(string id, string email, string password, string jabatan, string Penempatan)
@@ -124,6 +127,7 @@ namespace ProjectAlpha.Controllers
                 ModelState.AddModelError("", error.Description);
 
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
        
         public async Task<IActionResult> Delete(string id)

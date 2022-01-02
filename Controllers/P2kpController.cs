@@ -238,7 +238,7 @@ namespace ProjectAlpha.Controllers
             PopulateNarasumberDropdownList(p2kpToUpdate.NarsumID);
             return View(p2kpToUpdate);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: P2kp/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -258,7 +258,7 @@ namespace ProjectAlpha.Controllers
 
             return View(p2kp);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: P2kp/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

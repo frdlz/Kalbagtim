@@ -37,6 +37,9 @@
     <None Include="Views\Account\AccessDenied.cshtml" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Login1.cshtml" />
+    <None Include="Views\Role\Create.cshtml" />
+    <None Include="Views\Role\Index.cshtml" />
+    <None Include="Views\Role\Update.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
