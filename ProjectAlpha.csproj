@@ -37,6 +37,11 @@
     <None Include="Views\Account\AccessDenied.cshtml" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Login1.cshtml" />
+    <None Include="Views\Appointments\Create.cshtml" />
+    <None Include="Views\Appointments\Delete.cshtml" />
+    <None Include="Views\Appointments\Details.cshtml" />
+    <None Include="Views\Appointments\Edit.cshtml" />
+    <None Include="Views\Appointments\Index.cshtml" />
     <None Include="Views\Role\Create.cshtml" />
     <None Include="Views\Role\Index.cshtml" />
     <None Include="Views\Role\Update.cshtml" />

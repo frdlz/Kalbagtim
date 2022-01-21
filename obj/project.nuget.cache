@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "t8z01fHbex0iiedsZsAt1ZNM22dLXNbOXLhdryj6OwDYTg49D+PnQakw5wmCRaQ/CK1zQFpcqnyXjOG8fQ9wsw==",
+  "dgSpecHash": "VvLhXIWVy/RJwGYkf0q6Yw12Fb+9uazXxE3kPSr3cYEIhjMxjVT+sfbD4vVsA8vW3A+B8PRpc9srlrXabTGA6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\XCV\\Documents\\GitHub\\Kalbagtim\\ProjectAlpha.csproj",
   "expectedPackageFiles": [
@@ -170,7 +170,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\XCV\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
   ],
   "logs": []
 }
