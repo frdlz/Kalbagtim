@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using WBKNET.Models.Frontdesk;
 
 namespace ProjectAlpha.Controllers.Frontdesk
 {
+    [Authorize(Roles = "Frontdesk")]
     public class LayananFrontdesksController : Controller
     {
         private readonly ProjectAlphaContext _context;
