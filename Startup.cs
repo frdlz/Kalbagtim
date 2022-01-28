@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Data;
 using ProjectAlpha.Models;
 using Microsoft.AspNetCore.Identity;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace ProjectAlpha
 {
@@ -27,6 +29,12 @@ namespace ProjectAlpha
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             services.AddControllersWithViews();
            
             services.AddDbContext<ProjectAlphaContext>(options =>
@@ -43,12 +51,20 @@ namespace ProjectAlpha
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.Use(async (context, next) =>
+                {
+                    await next();
+                    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                    {
+                        context.Request.Path = "/index.html";
+                        await next();
+                    }
+                });
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-
+            app.UseCors("CorsPolicy");
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -60,6 +76,9 @@ namespace ProjectAlpha
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Account}/{action=Login}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Appointments}/{action=Index}/{id?}");
             });
         }
     }
