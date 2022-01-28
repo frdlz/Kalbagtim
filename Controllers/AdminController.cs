@@ -21,7 +21,7 @@ namespace ProjectAlpha.Controllers
             passwordValidator = passwordVal;
             userValidator = userValid;
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "PDAD")]
         public IActionResult Index()
         {
             return View(userManager.Users);
@@ -56,7 +56,7 @@ namespace ProjectAlpha.Controllers
             }
             return View(user);
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "PDAD")]
         public async Task<IActionResult> Update(string id)
             {
                 AppUser user = await userManager.FindByIdAsync(id);
@@ -65,7 +65,7 @@ namespace ProjectAlpha.Controllers
                 else
                     return RedirectToAction("Index");
             }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "PDAD")]
         [HttpPost]
        
         public async Task<IActionResult> Update(string id, string email, string password, string jabatan, string Penempatan)
@@ -127,7 +127,7 @@ namespace ProjectAlpha.Controllers
                 ModelState.AddModelError("", error.Description);
 
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "PDAD")]
         [HttpPost]
        
         public async Task<IActionResult> Delete(string id)

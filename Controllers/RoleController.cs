@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAlpha.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class RoleController : Controller
     {
         

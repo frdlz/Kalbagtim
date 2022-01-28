@@ -18,7 +18,7 @@ namespace ProjectAlpha.Controllers
             userManager = userMgr;
             signInManager = signinMgr;
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "PDAD")]
         public IActionResult Index()
         {
             return View();
