@@ -68,7 +68,7 @@
                                                         <ol class="text-center">
 
 
-                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Dokumen")).Take(5))
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Pendok") || a.NamaLayanan.Contains("PDE")).Take(5))
                                                             {
                                                                 @if (@item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
                                                                 {
@@ -102,7 +102,7 @@
                                                         <ol>
 
 
-                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Informasi") || a.NamaLayanan.Contains("Lainnya")).Take(5))
+                                                            @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Informasi") || a.NamaLayanan.Contains("Manifest") || a.NamaLayanan.Contains("Analyzing") || a.NamaLayanan.Contains("Lainnya")).Take(5))
                                                             {
                                                                 @if (@item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
                                                                 {

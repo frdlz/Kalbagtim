@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4j/7hFp7qNS8mUkqO36cWavcMMua/L233XbHp0nIvkhstOy2b6mB2lle+cJLRwp465q8hpDX3DLr+9otliuumw==",
+  "dgSpecHash": "VvLhXIWVy/RJwGYkf0q6Yw12Fb+9uazXxE3kPSr3cYEIhjMxjVT+sfbD4vVsA8vW3A+B8PRpc9srlrXabTGA6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\XCV\\Documents\\GitHub\\Kalbagtim\\ProjectAlpha.csproj",
   "expectedPackageFiles": [
@@ -52,7 +52,6 @@
     "C:\\Users\\XCV\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.5.0\\microsoft.identitymodel.tokens.5.5.0.nupkg.sha512",
     "C:\\Users\\XCV\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\XCV\\.nuget\\packages\\microsoft.typescript.msbuild\\4.5.3\\microsoft.typescript.msbuild.4.5.3.nupkg.sha512",
     "C:\\Users\\XCV\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.5\\microsoft.visualstudio.web.codegeneration.3.1.5.nupkg.sha512",
     "C:\\Users\\XCV\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.5\\microsoft.visualstudio.web.codegeneration.contracts.3.1.5.nupkg.sha512",
     "C:\\Users\\XCV\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.5\\microsoft.visualstudio.web.codegeneration.core.3.1.5.nupkg.sha512",
