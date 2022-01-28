@@ -14,7 +14,7 @@ namespace ProjectAlpha.Controllers
         
             private RoleManager<IdentityRole> roleManager;
             private UserManager<AppUser> userManager;
-
+            
             public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<AppUser> userMrg)
             {
                 roleManager = roleMgr;
