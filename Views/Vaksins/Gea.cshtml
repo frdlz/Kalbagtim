@@ -1,0 +1,64 @@
+﻿@model ProjectAlpha.Models.Side.VaksinViewModel
+
+<div class="container-fluid shadow-sm p-3 mb-5 bg-transparent rounded">
+<div class="col-md-12 mt-2">
+
+    <div class="card-deck">
+              <div class="card bgtheme border-0 shadow-lightblue rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Total Pegawai</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalPegawaai.ToString("N3")</p>
+                  <p class="card-text text-right" style="font-size:20px; color:green"><i class="fas fa-arrow-up" style="color:green"></i> 20%</p>
+                </div>
+              </div>
+             <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 1</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin1.ToString("#")</p>
+                </div>
+              </div>
+            <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 2</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin2.ToString("N3")</p>
+                </div>
+              </div>
+              <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 3</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin3.ToString("N3")</p>
+                </div>
+              </div>
+            </div>
+</div>
+<div class="col-md-12 mt-2">
+
+    <div class="card-deck">
+              <div class="card bgtheme border-0 shadow-lightblue rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Total Pegawai</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalPegawaai2.ToString("N3")</p>
+                  <p class="card-text text-right" style="font-size:20px; color:green"><i class="fas fa-arrow-up" style="color:green"></i> 20%</p>
+                </div>
+              </div>
+             <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 1</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin1Non.ToString("#")</p>
+                </div>
+              </div>
+            <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 2</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin2Non.ToString("N3")</p>
+                </div>
+              </div>
+              <div class="card bgtheme border-0 shadow-accent-fuchsia rounded">
+                <div class="card-body text-center">
+                  <p class="card-text text-left">Vaksin 3</p>
+                  <p class="card-text float-left" style="font-size:30px">@Model.TotalVaksin3Non.ToString("N3")</p>
+                </div>
+              </div>
+            </div>
+</div>
+</div>

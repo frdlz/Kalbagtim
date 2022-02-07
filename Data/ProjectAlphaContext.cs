@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using ProjectAlpha.Models;
 using ProjectAlpha.Models.ViewModel;
 using WBKNET.Models.Frontdesk;
+using ProjectAlpha.Models.Side;
 
 namespace ProjectAlpha.Data
 {
@@ -37,5 +38,7 @@ namespace ProjectAlpha.Data
                 property.ValueGenerated = ValueGenerated.OnAdd;
             }
         }
+
+        public DbSet<ProjectAlpha.Models.Side.Vaksin> Vaksin { get; set; }
     }
 }

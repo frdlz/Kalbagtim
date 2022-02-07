@@ -1,0 +1,66 @@
+﻿@model ProjectAlpha.Models.Side.Vaksin
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vaksin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VaksinID" />
+            <div class="form-group">
+                <label asp-for="NamaPegawai" class="control-label"></label>
+                <input asp-for="NamaPegawai" class="form-control" />
+                <span asp-validation-for="NamaPegawai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NipPegawai" class="control-label"></label>
+                <input asp-for="NipPegawai" class="form-control" />
+                <span asp-validation-for="NipPegawai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NikPegawai" class="control-label"></label>
+                <input asp-for="NikPegawai" class="form-control" />
+                <span asp-validation-for="NikPegawai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitKerja" class="control-label"></label>
+                <input asp-for="UnitKerja" class="form-control" />
+                <span asp-validation-for="UnitKerja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusASN" class="control-label"></label>
+                <input asp-for="StatusASN" class="form-control" />
+                <span asp-validation-for="StatusASN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaksin1" class="control-label"></label>
+                <input asp-for="Vaksin1" class="form-control" />
+                <span asp-validation-for="Vaksin1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaksin2" class="control-label"></label>
+                <input asp-for="Vaksin2" class="form-control" />
+                <span asp-validation-for="Vaksin2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaksin3" class="control-label"></label>
+                <input asp-for="Vaksin3" class="form-control" />
+                <span asp-validation-for="Vaksin3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

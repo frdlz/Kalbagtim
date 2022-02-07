@@ -323,6 +323,41 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("P2kp");
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.Side.Vaksin", b =>
+                {
+                    b.Property<string>("VaksinID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("NamaPegawai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NikPegawai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NipPegawai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusASN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UnitKerja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vaksin1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vaksin2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vaksin3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VaksinID");
+
+                    b.ToTable("Vaksin");
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.ViewModel.ImageP2kp", b =>
                 {
                     b.Property<int>("ImageP2kpID")

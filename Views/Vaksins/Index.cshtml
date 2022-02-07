@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjectAlpha.Models.Side.Vaksin>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container">
+    <form method="post" asp-controller="Vaksins" asp-action="Import" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <button type="submit">Gea</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaPegawai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NipPegawai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NikPegawai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitKerja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusASN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaksin1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaksin2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaksin3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaPegawai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NipPegawai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NikPegawai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitKerja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusASN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaksin1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaksin2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaksin3)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VaksinID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VaksinID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VaksinID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
