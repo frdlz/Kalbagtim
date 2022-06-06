@@ -1,11 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjectAlpha.Models
 {
     public class AppUser : IdentityUser
     {
+        [Display(Name = "NIP")]
         public string NIP { get; set; }
-        public string Jabatan { get; set; }
-        public string Penempatan { get; set; }
+        [Required]
+        [Display(Name = "Nomor HP")]
+        public string Phone { get; set; }
+
+        
     }
 }

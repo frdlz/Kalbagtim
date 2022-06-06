@@ -13,8 +13,8 @@
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Penempatan</th>
-            <th>Jabatan</th>
+            <th>Phone</th>
+            
             <th>Update</th>
             <th>Delete</th>
         </tr>
@@ -26,8 +26,8 @@
                 <td>@user.Id</td>
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
-                <td>@user.Penempatan</td>
-                <td>@user.Jabatan</td>
+                <td>@user.Phone</td>
+               
                 <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">Update</a></td>
                 <td>
                     <form asp-action="Delete" asp-route-id="@user.Id" method="post">

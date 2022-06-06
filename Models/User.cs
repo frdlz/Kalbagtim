@@ -18,9 +18,10 @@ namespace ProjectAlpha.Models
         [Display(Name = "NIP")]
         public string NIP { get; set; }
         [Required]
-        [Display(Name = "Status/Jabatan")]
-        public string Jabatan { get; set; }
-        [Display(Name = "Seksi")]
-        public string Penempatan { get; set; }
+        [Display(Name = "Nomor HP")]
+        public string Phone { get; set; }
+
+        
+      
     }
 }

@@ -41,8 +41,8 @@ namespace ProjectAlpha.Controllers
                     Id = user.NIP,
                     UserName = user.Name,
                     Email = user.Email,
-                    Jabatan = user.Jabatan,
-                    Penempatan = user.Penempatan
+                    Phone = user.Phone,
+                    
                 };
 
                 IdentityResult result = await userManager.CreateAsync(appUser, user.Password);
@@ -68,7 +68,7 @@ namespace ProjectAlpha.Controllers
         [Authorize(Roles = "PDAD")]
         [HttpPost]
        
-        public async Task<IActionResult> Update(string id, string email, string password, string jabatan, string Penempatan)
+        public async Task<IActionResult> Update(string id, string email, string password, string phone)
         {
             AppUser user = await userManager.FindByIdAsync(id);
             if (user != null)
@@ -97,15 +97,12 @@ namespace ProjectAlpha.Controllers
 
                 else
                     ModelState.AddModelError("", "Password tidak boleh kosong");
-                if (!string.IsNullOrEmpty(jabatan))
-                    user.Jabatan = jabatan;
+                if (!string.IsNullOrEmpty(phone))
+                    user.Phone = phone;
+                
                 else
-                    ModelState.AddModelError("", "Jabatan tidak boleh kosong"); 
-                if (!string.IsNullOrEmpty(Penempatan))
-                    user.Penempatan = Penempatan;
-                else
-                    ModelState.AddModelError("", "Penempatan tidak boleh kosong");
-                if (validEmail != null && validPass != null && validEmail.Succeeded && validPass.Succeeded && !string.IsNullOrEmpty(jabatan))
+                    ModelState.AddModelError("", "Nomor HP tidak boleh kosong");
+                if (validEmail != null && validPass != null && validEmail.Succeeded && validPass.Succeeded && !string.IsNullOrEmpty(phone))
                 {
                     IdentityResult result = await userManager.UpdateAsync(user);
                     if (result.Succeeded)
