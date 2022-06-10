@@ -1,0 +1,184 @@
+﻿@model WBKNET.Models.Proker.Office.Bongkar
+
+@{
+    ViewData["Title"] = "Create";
+     Layout = "_LayoutLTEOffice";
+}
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+    .bgbg
+    {
+       border-radius: 19px;
+        background: #ffffff;
+        box-shadow:  8px 8px 17px #bdbdbd,
+                     -8px -8px 17px #ffffff;
+    }
+    .btncrt
+    {
+       border-radius: 9px;
+        background: #ffffff;
+        box-shadow:  8px 8px 17px #bdbdbd,
+                     -8px -8px 17px #ffffff;
+    }
+    
+    .button {
+  
+  
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  
+  
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+
+</head>
+
+
+<div class="container">
+
+
+
+<div class="card text-black-50 bgbg mt-4 mr-2 mb-2">
+   
+    <div class="card-body">
+        
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                         <div class="form-group">
+                <label asp-for="NoPermohonan" class="control-label"></label>
+                <input asp-for="NoPermohonan" class="form-control" />
+                <span asp-validation-for="NoPermohonan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalPermohonan" class="control-label"></label>
+                <input asp-for="TanggalPermohonan" class="form-control" />
+                <span asp-validation-for="TanggalPermohonan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hal" class="control-label"></label>
+                <input asp-for="Hal" class="form-control" />
+                <span asp-validation-for="Hal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomorBC11" class="control-label"></label>
+                <input asp-for="NomorBC11" class="form-control" />
+                <span asp-validation-for="NomorBC11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalBC11" class="control-label"></label>
+                <input asp-for="TanggalBC11" class="form-control" />
+                <span asp-validation-for="TanggalBC11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaSarkut" class="control-label"></label>
+                <input asp-for="NamaSarkut" class="form-control" />
+                <span asp-validation-for="NamaSarkut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoBL" class="control-label"></label>
+                <input asp-for="NoBL" class="form-control" />
+                <span asp-validation-for="NoBL" class="text-danger"></span>
+            </div>
+                    </div>
+                    <div class="col-md-6">
+                        
+            <div class="form-group">
+                <label asp-for="TanggalBL" class="control-label"></label>
+                <input asp-for="TanggalBL" class="form-control" />
+                <span asp-validation-for="TanggalBL" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Bruto" class="control-label"></label>
+                <input asp-for="Bruto" class="form-control" />
+                <span asp-validation-for="Bruto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volume" class="control-label"></label>
+                <input asp-for="Volume" class="form-control" />
+                <span asp-validation-for="Volume" class="text-danger"></span>
+            </div>
+           
+             <div class="form-group">
+                  <label asp-for="DaftarLokasiPerijinan.NamaLokasi" class="control-label"></label>
+                 
+                     <div class="row">
+                         <div class="col-md-10">
+                             
+                             <select asp-for="DaftarLokasiPerijinanID" class="custom-select" asp-items="ViewBag.DaftarLokasiPerijinanID">
+                                <option value="">-- Select--</option>
+                             </select>
+                              <span asp-validation-for="DaftarLokasiPerijinanID" class="text-danger" />
+                         </div>
+                         <div class="col-md-2">
+                             
+                             <a asp-controller="DaftarLokasiPerijinans" asp-action="Create" class="button btn btn-success btnwdth ml-auto"><span><i class="fa-solid fa-location-arrow"></span></i></a>
+                         </div>
+                     </div>
+                
+            
+             </div>                  
+            <div class="form-group">
+                <label asp-for="Alasan" class="control-label"></label>
+                <textarea rows="8" cols="50" asp-for="Alasan" class="form-control"></textarea>
+                <span asp-validation-for="Alasan" class="text-danger"></span>
+            </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <span>
+                    <i class="fa-solid fa-hexagon-plus"></i>
+                  </span>
+                <input type="submit" value="Create" class="btn btncrt" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+

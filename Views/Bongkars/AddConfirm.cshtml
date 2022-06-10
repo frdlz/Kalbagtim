@@ -1,0 +1,69 @@
+﻿@using WBKNET.Models.Proker.Office
+@model WBKNET.Models.Proker.Office.ConfirmIjinBongkar
+
+@{
+    ViewData["Title"] = "Add Barang";
+     Layout = "_LayoutLTEOffice";
+}
+    
+
+    <div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddLapTimbun">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="BongkarID" class="form-control" />
+            <div class="form-group">
+                <label asp-for="JenisDok" class="control-label"></label>
+                <input asp-for="JenisDok" class="form-control" />
+                <span asp-validation-for="JenisDok" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="NomorDokumen" class="control-label"></label>
+                <input asp-for="NomorDokumen" class="form-control" />
+                <span asp-validation-for="NomorDokumen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalDok" class="control-label"></label>
+                <input asp-for="TanggalDok" class="form-control" />
+                <span asp-validation-for="TanggalDok" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusDok" class="control-label"></label>
+                <input asp-for="StatusDok" class="form-control" />
+                <span asp-validation-for="StatusDok" class="text-danger"></span>
+            </div>
+           
+            
+           
+             
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-danger" asp-action="PabeanTerima" asp-route-id="@Model.BongkarID">Back</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                @await Component.InvokeAsync("ConfirmIjinBongkar", new { BongkarID = @Model.BongkarID })  
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+ 
+
+
+<div>
+    
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/bongkars.js"></script>
+}

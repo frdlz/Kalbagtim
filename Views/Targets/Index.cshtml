@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WBKNET.Models.Proker.Dash.Target>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TahunTarget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BMMonthly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BKMonthly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cukai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CukaiMonthly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TahunTarget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BMMonthly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BKMonthly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cukai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CukaiMonthly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TargetID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TargetID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TargetID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

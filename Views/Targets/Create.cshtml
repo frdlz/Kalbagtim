@@ -1,0 +1,65 @@
+﻿@model WBKNET.Models.Proker.Dash.Target
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Target</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TahunTarget" class="control-label"></label>
+                <input asp-for="TahunTarget" class="form-control" />
+                <span asp-validation-for="TahunTarget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BM" class="control-label"></label>
+                <input asp-for="BM" class="form-control" />
+                <span asp-validation-for="BM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BMMonthly" class="control-label"></label>
+                <input asp-for="BMMonthly" class="form-control" />
+                <span asp-validation-for="BMMonthly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BK" class="control-label"></label>
+                <input asp-for="BK" class="form-control" />
+                <span asp-validation-for="BK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BKMonthly" class="control-label"></label>
+                <input asp-for="BKMonthly" class="form-control" />
+                <span asp-validation-for="BKMonthly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cukai" class="control-label"></label>
+                <input asp-for="Cukai" class="form-control" />
+                <span asp-validation-for="Cukai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CukaiMonthly" class="control-label"></label>
+                <input asp-for="CukaiMonthly" class="form-control" />
+                <span asp-validation-for="CukaiMonthly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

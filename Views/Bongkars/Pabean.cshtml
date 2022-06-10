@@ -1,0 +1,140 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.BongkarViewModel
+
+@{
+    ViewData["Title"] = "Index";
+     Layout = "_LayoutLTEOffice";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+               PenggunaJasaID
+            </th>
+            <th>
+                Alamat
+            </th>
+            <th>
+                Kota
+            </th>
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>
+               Hal
+            </th>
+            <th>
+                NomorBC11
+            </th>
+            <th>
+               TanggalBC11
+            </th>
+            <th>
+                NamaSarkut
+            </th>
+            <th>
+                NoBL
+            </th>
+            <th>
+                TanggalBL
+            </th>
+          
+            <th>
+                Bruto
+            </th>
+            <th>
+                Volume
+            </th>
+           <th>
+                Barang
+            </th>
+            
+            <th>
+                Disp
+            </th>
+             <th>
+                Disp
+            </th>
+            <th>Status</th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkars) {
+        <tr>
+             <td>
+                @Html.DisplayFor(modelItem => item.PenggunaJasaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PenggunaJasa.Alamat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PenggunaJasa.Kota)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomorBC11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalBC11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaSarkut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoBL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalBL)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Bruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+             <td>
+                @foreach (var a in Model.posBarangs.Where(a => a.BongkarID == item.BongkarID))
+                {
+                        @Html.DisplayFor(modelItem => a.Jumlah) @Html.DisplayFor(modelItem => a.JenisKemasan) @Html.DisplayFor(modelItem => a.UraianBarang) <br />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaftarLokasiPerijinan.NamaLokasi)
+            </td>
+            <td>
+                @foreach (var a in Model.penLaps.Where(a => a.NoPermohonan == item.NoPermohonan))
+                {
+                        @Html.DisplayFor(modelItem => a.Status)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.Pabean)
+               
+            </td>
+            <td>
+                <a asp-action="KirimP2" asp-route-id="@item.BongkarID">Kirim P2</a> |
+                <a asp-action="Details" asp-route-id="@item.BongkarID">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

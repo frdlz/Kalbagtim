@@ -1,0 +1,85 @@
+﻿@using WBKNET.Models.Proker.Office
+@model WBKNET.Models.Proker.Office.PenLap
+
+@{
+    ViewData["Title"] = "Add Barang";
+     Layout = "_LayoutLTEOffice";
+}
+
+<h1>Add Barang</h1>
+
+<h4>Bongkar</h4>
+<hr />
+
+    <div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPenlap">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="BongkarID" class="form-control" />
+           
+            
+            <div class="form-group">
+                <label asp-for="NoBA" class="control-label"></label>
+                <input asp-for="NoBA" class="form-control" />
+                <span asp-validation-for="NoBA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalBA" class="control-label"></label>
+                <input asp-for="TanggalBA" class="form-control" />
+                <span asp-validation-for="TanggalBA" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TanggalMulai" class="control-label"></label>
+                <input asp-for="TanggalMulai" class="form-control" />
+                <span asp-validation-for="TanggalMulai" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Petugas1" class="control-label"></label>
+             <select asp-for="Petugas1" class="custom-select" asp-items="ViewBag.Petugas1">
+                <option value="">-- Select--</option>
+             </select>
+              <span asp-validation-for="Petugas1" class="text-danger" />
+             </div>
+             <div>
+                <label asp-for="Petugas2" class="control-label"></label>
+             <select asp-for="Petugas2" class="custom-select" asp-items="ViewBag.Petugas2">
+                <option value="">-- Select--</option>
+             </select>
+              <span asp-validation-for="Petugas2" class="text-danger" />
+             </div>
+            
+            <div>
+                <label asp-for="Plh" class="control-label"></label>
+             <select asp-for="Plh" class="custom-select" asp-items="Html.GetEnumSelectList<StatusKasi>()">
+                <option value="">-- Select--</option>
+             </select>
+              <span asp-validation-for="Plh" class="text-danger" />
+             </div>
+             <div>
+                <label asp-for="Kasi" class="control-label"></label>
+             <select asp-for="Kasi" class="custom-select" asp-items="ViewBag.Kasi">
+                <option value="">-- Select--</option>
+             </select>
+              <span asp-validation-for="Kasi" class="text-danger" />
+             </div>
+             
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@await Component.InvokeAsync("Penlap", new { BongkarID = @Model.BongkarID })
+   
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/bongkars.js"></script>
+}

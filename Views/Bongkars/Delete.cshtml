@@ -1,0 +1,123 @@
+﻿@model WBKNET.Models.Proker.Office.Bongkar
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bongkar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoPermohonan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoPermohonan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TanggalPermohonan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TanggalPermohonan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomorBC11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomorBC11)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TanggalBC11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TanggalBC11)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NamaSarkut)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NamaSarkut)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoBL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoBL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TanggalBL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TanggalBL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bruto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bruto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Volume)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Volume)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alasan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alasan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pabean)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pabean)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.P2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.P2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KK)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KK)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DaftarLokasiPerijinan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DaftarLokasiPerijinan.DaftarLokasiPerijinanID)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PenggunaJasa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PenggunaJasa.PenggunaJasaID)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BongkarID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

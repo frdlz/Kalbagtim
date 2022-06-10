@@ -1,0 +1,57 @@
+﻿@model WBKNET.Models.Proker.Office.NDBongkar
+
+@{
+    ViewData["Title"] = "Add Barang";
+     Layout = "_LayoutLTEOffice";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="AddND">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="BongkarID" class="form-control" />
+           
+            <div class="form-group">
+                <label asp-for="NomorND" class="control-label"></label>
+                <input asp-for="NomorND" class="form-control" />
+                <span asp-validation-for="NomorND" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalND" class="control-label"></label>
+                <input asp-for="TanggalND" class="form-control" />
+                <span asp-validation-for="TanggalND" class="text-danger"></span>
+            </div>
+            
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+        
+    </div>
+        </div>
+         <div class="col-md-6 col-sm-6 col-lg-6">
+            
+            
+           
+             
+        </div>
+    </div>
+</div>
+<hr />
+<a asp-action="PenggunaJasaBongkar">Back to List</a>
+   
+   
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/bongkars.js"></script>
+}

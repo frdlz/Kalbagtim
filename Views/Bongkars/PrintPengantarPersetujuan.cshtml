@@ -1,0 +1,426 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.PrintViewModel
+
+@{
+    ViewData["Title"] = "Print";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    
+    <style>
+        .ctable {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        .cth {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 15px;
+        }
+        .ctd {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 15px;
+        }
+        .buttonfx {
+            width: 60px;
+        }
+
+        
+
+        p {
+            padding: 3px;
+            
+            
+        }
+
+        h4 {
+            margin-bottom: 1px;
+        }
+
+        .printDetails > div {
+            display: inline-block;
+        }
+
+        .flexrow {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex !important;
+        }
+
+            .flexrow > div {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+            }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .justify {
+            text-align: justify;
+        }
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+        
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+        hr {
+            border: 1px solid black;
+            margin-top:-12px;
+        }
+        
+
+        
+
+           
+        div.b {
+            text-align: left;
+        }
+        .dtable, .dtd, .dth {
+            border: 1px transparent;
+        }
+        .bigfont{
+            font-size:800%;
+        }
+        .dtable {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        .dth {
+            height: 70px;
+        }
+        hr.dotted {
+            border-top: 3px dotted #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="float-left">
+                
+            </div>
+            <div style="text-align:center">
+                <img src="~/img/Logo/logo.png" width="130" height="120" />
+                <p style="line-height: 1">
+
+                    <strong>
+                        <span style="font-size:17px">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</span><br />
+                        <span style="font-size:15px">
+                            DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+
+                            KANTOR WILAYAH DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+                            KALIMANTAN BAGIAN TIMUR<br />
+                            KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI TIPE MADYA<br />
+                            PABEAN B BALIKPAPAN<br />
+                        </span>
+                    </strong>
+                    <span style="font-size:8px">
+                        JALAN YOS SUDARSO NOMOR 9, BALIKPAPAN 76111<br />
+                        TELEPON (0542) 423422, 421393; FAKSIMILE (0542) 423951, 731212; LAMAN WWW.BEACUKAI.GO.ID<br />
+                        PUSAT KONTAK LAYANAN 1500225; SUREL BCBALIKPAPAN@KEMENKEU.GO.ID<br />
+                    </span>
+                </p>
+            </div> 
+        </div>
+    </header>
+    <hr />
+    <div style="margin-bottom:20px">
+      
+        <div style="text-align:center">
+            <p style="line-height: 1">
+                NOTA DINAS<br />
+                NOMOR 001/0000/0000/2022
+             </p>
+               
+             <table style="margin-bottom:10px;text-align:left;border:0px">
+               <tr>
+     
+                <td style="width:200px">Yth</td>
+                <td>:</td>
+                 <td></td>
+              </tr>
+              <tr>
+      
+                <td>Dari</td>
+                <td>:</td>
+                <td>@Model.Bongkar.JabatanKasiPabean</td>
+              </tr>
+              <tr>
+       
+                 <td>Hal</td>
+                <td>:</td>
+                <td>@Model.Bongkar.Hal </td>
+              </tr>
+               <tr>
+       
+                 <td>Tanggal</td>
+                <td>:</td>
+                <td>@Model.Bongkar.WkKasiPabean.ToShortDateString() </td>
+              </tr>
+             </table>    
+        </div>
+        </div>
+         <hr />
+        <div style="margin-top:20px">
+            <p style="text-indent: 30px;">Sehubungan dengan surat permohonan @Model.Bongkar.PenggunaJasa.NamaPerusahaan nomor @Model.Bongkar.NoPermohonan tanggal @Model.Bongkar.TanggalPermohonan.ToShortDateString() hal @Model.Bongkar.Hal yang diterima lengkap tanggal @Model.Bongkar.WkPetugasTerimaPabean.ToShortDateString(), disampaikan hal-hal sebagai berikut :</p>
+        </div>
+   
+     
+         
+           
+       
+   
+<ol start="1">
+    <li class="justify">Bahwa Saudara selaku pengangkut mengajukan permohonan izin pembongkaran barang impor di tempat lain selain kawasan pabean dengan rincian sebagai berikut :</li>
+    
+<table style="width:100%; float:left; text-align:left">
+  <tr>
+      <th>-</th>
+    <td style="width:200px">Sarana Pengangkut</td>
+    <td>:</td>
+     <td>@Model.Bongkar.NamaSarkut</td>
+  </tr>
+  <tr>
+       <th>-</th>
+    <td>Nomor BC 1.1</td>
+    <td>:</td>
+    <td>@Model.Bongkar.NomorBC11</td>
+  </tr>
+  <tr>
+       <th>-</th>
+     <td>Bill of Lading / AWB</td>
+    <td>:</td>
+    <td>@Model.Bongkar.NoBL </td>
+  </tr>
+   <tr>
+        <th style="vertical-align:text-top">-</th>
+     <td style="vertical-align:text-top">Jumlah & Jenis Barang dalam manifest</td>
+    <td style="vertical-align:text-top">:</td>
+     <td style="text-align:left;vertical-align:text-top">
+                        @if (@Model.Bongkar.PosBarangs.Count == 1)
+                        {
+                            @foreach (var o in @Model.Bongkar.PosBarangs)
+                            {
+                                @o.Jumlah <span>&nbsp;</span> @o.UraianBarang
+                            }
+                        }
+                        else
+                        { <table>
+                                    
+                            @foreach (var o in @Model.Bongkar.PosBarangs)
+                            {
+                                <tr>
+                                    <td>-</td>
+                               <td>
+                                   @o.Jumlah
+                               </td>
+                               <td>
+                                   @o.UraianBarang
+                               </td>
+                                </tr>
+                                 
+                                    
+                             
+                            }
+                              
+                                </table>
+                        }
+                    </td>
+  </tr>
+   <tr>
+        <th>-</th>
+     <td>Bruto / Volume</td>
+    <td>:</td>
+     <td>@Model.Bongkar.Bruto / @Model.Bongkar.Volume</td>
+  </tr>
+  <tr>
+       <th>-</th>
+      <td>Lokasi Bongkar</td>
+    <td>:</td>
+     <td>@Model.Bongkar.DaftarLokasiPerijinan.NamaLokasi</td>
+  </tr>
+  <tr>
+       <th>-</th>
+     <td>Alasan Pembongkaran</td>
+    <td>:</td>
+    <td>@Model.Bongkar.Alasan</td>
+  </tr>
+</table>
+    
+        Berdasarkan hal-hal tersebut diatas, didapat informasi bahwa permohonan yang diajukan oleh @Model.Bongkar.PenggunaJasa.NamaPerusahaan dilampiri dengan :
+        
+        <ol type="a"> 
+            <li class=justify>
+                 Alasan Pembongkaran Barang Impor di Luar Kawasan Pabean
+            </li>
+            <li class=justify>
+                BC 1.1(Manifest Inward)
+            </li>
+            <li class=justify>
+                B/L
+            </li>
+            <li class=justify>
+                Invoice
+            </li>
+            <li class=justify>
+                Packing List
+            </li>
+        </ol>
+    
+   <li class="justify">Bahwa telah dilakukan pemeriksaan atas lokasi pembongkaran dimaksud yang dituangkan dalam Berita Acara Pemeriksaan Lokasi Nomor @Model.PenLap.NoBA tanggal @Model.PenLap.TanggalBA.ToShortDateString() dan atas lokasi tersebut dimaksud oleh Seksi Penindakan dan Penyidikan dinyatakan @Model.PenLap.Status sebagai lokasi pembongkaran barang impor.</li>
+    <li class="justify">Berdasarkan Penelitian dokumen dan aplikasi CEISA, diketahui data :
+        <table class="table ctable">
+            <tr>
+                <th class="cth">
+                    BC 1.1 (Inward)
+                </th>
+                <th class="cth">
+                    Importir
+                </th>
+                <th class="cth">
+                    Jumlah / Jenis Barang dalam manifest
+                </th>
+                <th class="cth">
+                    Keterangan
+                </th>
+            </tr>
+            <tr>
+                <td class="ctd">
+                    
+                    BC 1.1 (Inward) no @Model.Bongkar.NomorBC11 tanggal @Model.Bongkar.TanggalBC11.ToShortDateString()
+                
+                </td>
+                <td class="ctd">
+                    @Model.Bongkar.PenggunaJasa.NamaPerusahaan
+                </td>
+                <td class="ctd">
+                   @foreach (var o in @Model.Bongkar.PosBarangs)
+                            {
+                                @o.Jumlah <span>&nbsp;</span> @o.UraianBarang
+                            }
+                </td>
+                           
+                <td class="ctd">
+                    Telah diajukan pemberitahuan pemasukan barang impor @Model.ConfirmIjinBongkar.JenisDok No. @Model.ConfirmIjinBongkar.NomorDokumen tanggal @Model.ConfirmIjinBongkar.TanggalDok.ToShortDateString() dan telah berstatus @Model.ConfirmIjinBongkar.StatusDok
+                </td>            
+            </tr>
+        </table>
+    </li>
+    <li class="justify">
+        Berdasarkan ketentuan Peraturan Menteri Keuangan Nomor 108/PMK.04/2020 tentang Pembongkaran dan Penimbunan Barang Impor:
+        <ol type="a"> 
+            <li>
+                Pembongkaran barang impor dari sarana pengangkut yang datang dari kuar daerah pabean dapat dilakukan di tempat selain kawasan pabean setelah mendapat izin kepala kantor yang mengawasi tempat tersebut.
+            </li>
+            <li>
+                Pembongkaran barang impor di tempat lain selain kawasan pabean diberikan dalam hal:
+                <ol type="1">
+                    <li>
+                        barang impor bersifat khusus dengan memperhatikan sifat, ukuran, dan/atau bentuknya yang menyebabkan tidak dapat dibongkar di Kawasan Pabean;
+                    </li>
+                    <li>
+                        barang impor diangkut lanjut;
+                    </li>
+                    <li>
+                        adanya kendala teknis di Kawasan Pabean, seperti tidak tersedianya alat untuk melakukan pembongkaran atau kerusakan pada alat yang digunakan untuk melakukan pembongkaran;
+                    </li>
+                    <li>
+                        terdapat kongesti yang dinyatakan secara tertulis oleh penyelenggara pelabuhan; dan/atau;
+                    </li>
+                    <li>
+                        tidak tersedianya Kawasan Pabean.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Pembongkaran barangh impor dapat dilakukan setelah pengangkut menyerahkan Inward Manifest dan telah mendapatkan nomor dan tanggal pendaftaran.
+            </li>
+            <li>
+                Atas pembongkaran barang impor dilakukan pengawasan secara selektif berdasarkan manajemen resiko dan membuat laporan pengawasan pembongkaran.
+            </li>
+            <li>
+                Untuk melakukan pembongkaran barang impor di tempat lain selain kawasan pabean, pengangkut harus mengajukan permohonan kepada kepala kantor dengan menyebutkan alsan pembongkaran.
+            </li>
+            <li>
+                Pengangkut bertanggung jawab atas bea masuk yang terutang atas barang yang dibongkar di kawasan pabean atau tempat lain selain kawasan pabean.
+            </li>
+        </ol>
+    </li>
+    <li>
+        Dalam rangka untuk menngoptimalkan pengawasan dan pelayanan Petugas Bea dan Cukai terhadap Pembongkaran di luar kawasan pabean, diminta Pengangkut Wajib :
+        <ol type="a">
+            <li>
+                menyampaikan laporan bongkar berupa daftar bongkar yang berisi jumlah kemasan, jenis kemasan, dan/atau jumlah barang curah yang telah dibongkar, kepada Pejabat Bea dan Cukai di kantor pabean pembongkaran dalam jangka waktu paling lama 24 (dua puluh empat) jam terhitung sejak pembongkaran selesai
+            </li>
+            <li>
+                membuat berita acara serah terima barang yang ditimbun di TPS atau tempat lain dengan pengusaha TPS atau orang lain yang bertanggung jawab atas tempat lain dimaksud, dan menyerahkan tembusan berita acara serah terima tersebut kepada Pejabat Bea dan Cukai di kantor pabean.
+            </li>
+        </ol>
+    </li>
+    <li>
+        Berdasarkan angka (1) dan (2) dengan mempertimbangkan ketentuan pada angka (3) s.d (5) dapat disimpulkan bahwa:
+        <ol type="a">
+            <li>
+                Surat Permohonan Izin Pembongkaran di Luar Kawasan Pabean yang diajukan telah memenuhi ketentuan yang berlaku;
+            </li>
+            <li>
+                Berita Acara Pemeriksaan yang disampaikan oleh Seksi Pengawasan dan Penindakan menyatakan kelayakan lokasi pembongkaran
+            </li>
+            <li>
+                Alasan yang diajukan untuk dilakukan Pembongkaran di Luar Kawasan Pabaen memenuhi syarat sesuai dengan peraturan yang berlaku; 
+            </li>
+        </ol>
+    </li>
+    <li>
+        Berdasarkan hal-hal tersebut di atas, kami berpendapat bahwa permohonan @Model.Bongkar.PenggunaJasa.NamaPerusahaan untuk melakukan pembongkaran barang impor di tempat lain selain kawasan pabean dimaksud dapat dipertimbangkan untuk disetujui.
+    </li>
+
+</ol>
+
+<div>
+    Demikian disampaikan untuk menjadi pertimbangan, apabila Bapak tidak berpendapat lain terlampir konsep surat persetujuan untuk ditandatangani 
+</div>
+<div>
+    <div style="margin-left:550px">
+        <p style="margin-bottom:100px">
+             
+        </p>
+         <p style="margin-bottom:0px">
+            @Model.Bongkar.NamaKasiPabean<br />
+            @Model.Bongkar.KasiPabean
+            
+         </p>           
+                       
+                        
+                            
+                        
+                       
+                        
+
+                        
+                   
+
+               
+    </div>
+               
+
+            </div>
+    
+</body>
+</html>

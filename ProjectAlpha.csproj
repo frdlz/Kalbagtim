@@ -42,9 +42,78 @@
     <None Include="Views\Appointments\Details.cshtml" />
     <None Include="Views\Appointments\Edit.cshtml" />
     <None Include="Views\Appointments\Index.cshtml" />
+    <None Include="Views\Bongkars\AddBarang.cshtml" />
+    <None Include="Views\Bongkars\AddConfirm.cshtml" />
+    <None Include="Views\Bongkars\AddDisposisi.cshtml" />
+    <None Include="Views\Bongkars\AddLapTimbun.cshtml" />
+    <None Include="Views\Bongkars\AddND.cshtml" />
+    <None Include="Views\Bongkars\AddPenlap.cshtml" />
+    <None Include="Views\Bongkars\Create.cshtml" />
+    <None Include="Views\Bongkars\Delete.cshtml" />
+    <None Include="Views\Bongkars\Details.cshtml" />
+    <None Include="Views\Bongkars\Disposisi.cshtml" />
+    <None Include="Views\Bongkars\Edit.cshtml" />
+    <None Include="Views\Bongkars\Index.cshtml" />
+    <None Include="Views\Bongkars\KakapBongkar.cshtml" />
+    <None Include="Views\Bongkars\KirimIjin.cshtml" />
+    <None Include="Views\Bongkars\KirimKK.cshtml" />
+    <None Include="Views\Bongkars\KirimP2.cshtml" />
+    <None Include="Views\Bongkars\KirimPabean.cshtml" />
+    <None Include="Views\Bongkars\LapTimbun.cshtml" />
+    <None Include="Views\Bongkars\P2.cshtml" />
+    <None Include="Views\Bongkars\P2Bongkar.cshtml" />
+    <None Include="Views\Bongkars\Pabean.cshtml" />
+    <None Include="Views\Bongkars\PabeanBongkar.cshtml" />
+    <None Include="Views\Bongkars\PabeanTerima.cshtml" />
+    <None Include="Views\Bongkars\PenggunaJasaBongkar.cshtml" />
+    <None Include="Views\Bongkars\PrintBA.cshtml" />
+    <None Include="Views\Bongkars\PrintLapBongkar.cshtml" />
+    <None Include="Views\Bongkars\PrintNDP2.cshtml" />
+    <None Include="Views\Bongkars\PrintPengantarPersetujuan.cshtml" />
+    <None Include="Views\Bongkars\PrintPersetujuan.cshtml" />
+    <None Include="Views\Bongkars\PrintSTP2.cshtml" />
+    <None Include="Views\Bongkars\SelesaiIjin.cshtml" />
+    <None Include="Views\Bongkars\SelesaiP2.cshtml" />
+    <None Include="Views\Bongkars\SetujuKasiPabean.cshtml" />
+    <None Include="Views\Bongkars\TolakKasiPabean.cshtml" />
     <None Include="Views\Role\Create.cshtml" />
     <None Include="Views\Role\Index.cshtml" />
     <None Include="Views\Role\Update.cshtml" />
+    <None Include="Views\Targets\Create.cshtml" />
+    <None Include="Views\Targets\Delete.cshtml" />
+    <None Include="Views\Targets\Details.cshtml" />
+    <None Include="Views\Targets\Edit.cshtml" />
+    <None Include="Views\Targets\Index.cshtml" />
+    <None Include="Views\TopImporBMs\Create.cshtml" />
+    <None Include="Views\TopImporBMs\Delete.cshtml" />
+    <None Include="Views\TopImporBMs\Details.cshtml" />
+    <None Include="Views\TopImporBMs\Edit.cshtml" />
+    <None Include="Views\TopImporBMs\Index.cshtml" />
+    <None Include="Views\TopImportirDevs\Create.cshtml" />
+    <None Include="Views\TopImportirDevs\Delete.cshtml" />
+    <None Include="Views\TopImportirDevs\Details.cshtml" />
+    <None Include="Views\TopImportirDevs\Edit.cshtml" />
+    <None Include="Views\TopImportirDevs\Index.cshtml" />
+    <None Include="Views\TopKomoditis\Create.cshtml" />
+    <None Include="Views\TopKomoditis\Delete.cshtml" />
+    <None Include="Views\TopKomoditis\Details.cshtml" />
+    <None Include="Views\TopKomoditis\Edit.cshtml" />
+    <None Include="Views\TopKomoditis\Index.cshtml" />
+    <None Include="Views\TopLokasis\Create.cshtml" />
+    <None Include="Views\TopLokasis\Delete.cshtml" />
+    <None Include="Views\TopLokasis\Details.cshtml" />
+    <None Include="Views\TopLokasis\Edit.cshtml" />
+    <None Include="Views\TopLokasis\Index.cshtml" />
+    <None Include="Views\TopNegaraAsals\Create.cshtml" />
+    <None Include="Views\TopNegaraAsals\Delete.cshtml" />
+    <None Include="Views\TopNegaraAsals\Details.cshtml" />
+    <None Include="Views\TopNegaraAsals\Edit.cshtml" />
+    <None Include="Views\TopNegaraAsals\Index.cshtml" />
+    <None Include="Views\Updates\Create.cshtml" />
+    <None Include="Views\Updates\Delete.cshtml" />
+    <None Include="Views\Updates\Details.cshtml" />
+    <None Include="Views\Updates\Edit.cshtml" />
+    <None Include="Views\Updates\Index.cshtml" />
     <None Include="wwwroot\dist\css\adminlte.css.map" />
     <None Include="wwwroot\dist\css\adminlte.min.css.map" />
     <None Include="wwwroot\dist\css\alt\adminlte.components.css.map" />
@@ -1392,6 +1461,7 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="5.8.5" />
+    <PackageReference Include="Google.DataTable.Net.Wrapper" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
@@ -1401,8 +1471,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="NPOI" Version="2.5.5" />
+    <PackageReference Include="Rotativa" Version="1.7.4-rc" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.18" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1500,6 +1573,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\api\" />
+    <Folder Include="Controllers\Proker\Add\" />
+    <Folder Include="Models\Proker\AddOn\" />
+    <Folder Include="Models\Proker\NewFolder\" />
+    <Folder Include="Models\Proker\Office\ListUser\" />
+    <Folder Include="Models\Proker\Office\NewFolder\" />
   </ItemGroup>
 
 </Project>

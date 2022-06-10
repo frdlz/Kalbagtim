@@ -1,0 +1,325 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.PrintViewModel
+
+@{
+    ViewData["Title"] = "Print";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    
+    <style>
+        .ctable {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        .cth {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 15px;
+        }
+        .ctd {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 15px;
+        }
+        .buttonfx {
+            width: 60px;
+        }
+
+        
+
+        p {
+            padding: 3px;
+            
+            
+        }
+
+        h4 {
+            margin-bottom: 1px;
+        }
+
+        .printDetails > div {
+            display: inline-block;
+        }
+
+        .flexrow {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex !important;
+        }
+
+            .flexrow > div {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+            }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .justify {
+            text-align: justify;
+        }
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+        
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+        hr {
+            border: 1px solid black;
+            margin-top:-12px;
+        }
+        
+
+        
+
+           
+        div.b {
+            text-align: left;
+        }
+        .dtable, .dtd, .dth {
+            border: 1px transparent;
+        }
+        .bigfont{
+            font-size:800%;
+        }
+        .dtable {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        .dth {
+            height: 70px;
+        }
+        hr.dotted {
+            border-top: 3px dotted #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="float-left">
+                
+            </div>
+            <div style="text-align:center">
+                <img src="~/img/Logo/logo.png" width="130" height="120" />
+                <p style="line-height: 1">
+
+                    <strong>
+                        <span style="font-size:24px">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</span><br />
+                        <span style="font-size:21px">
+                            DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+
+                            KANTOR WILAYAH DIREKTORAT JENDERAL BEA DAN CUKAI
+                            KALIMANTAN BAGIAN TIMUR<br />
+                            KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI TIPE MADYA
+                            PABEAN B BALIKPAPAN<br />
+                        </span>
+                    </strong>
+                    <span style="font-size:14px">
+                        JALAN YOS SUDARSO NOMOR 9, BALIKPAPAN 76111<br />
+                        TELEPON (0542) 423422, 421393; FAKSIMILE (0542) 423951, 731212; LAMAN WWW.BEACUKAI.GO.ID<br />
+                        PUSAT KONTAK LAYANAN 1500225; SUREL BCBALIKPAPAN@KEMENKEU.GO.ID<br />
+                    </span>
+                </p>
+            </div> 
+        </div>
+    </header>
+    <hr />
+    <div style="margin-bottom:20px">
+      
+        <div style="text-align:center">
+            <p style="line-height: 1;font-size:24px">
+                LAPORAN PENGAWASAN PENIMBUNAN BARANG IMPOR<br />
+                (BCL 1.2)<br />
+                Nomor 001/0000/0000/2022 Tanggal 01/01/2022
+             </p>
+               
+             <table style="margin-bottom:10px;text-align:left;border:0px">
+               <tr>
+     
+                <td style="width:400px">Tempat (Pembongkaran dan/atau Penimbunan)*</td>
+                
+              </tr>
+              <tr>
+      
+                <td>Nama Tempat</td>
+                <td>:</td>
+                <td>@Model.Bongkar.DaftarLokasiPerijinan.NamaLokasi</td>
+              </tr>
+              <tr>
+       
+                 <td>Alamat</td>
+                <td>:</td>
+                <td>@Model.Bongkar.DaftarLokasiPerijinan.Alamat </td>
+              </tr>
+               <tr>
+       
+                 <td>Nama Sarana Pengangkut dan no. voy/flight</td>
+                <td>:</td>
+                <td>@Model.Bongkar.NamaSarkut </td>
+              </tr>
+              <tr>
+       
+                 <td>Nama Pengangkut / Kuasanya</td>
+                <td>:</td>
+                <td>@Model.Bongkar.PenggunaJasa.NamaPerusahaan </td>
+              </tr>
+              <tr>
+       
+                 <td>Tanggal Kedatangan Sarana Pengangkut</td>
+                <td>:</td>
+                <td>@Model.Bongkar.TanggalBC11 </td>
+              </tr>
+              <tr>
+       
+                 <td>Nomor dan Tanggal inward manifest </td>
+                <td>:</td>
+                <td>@Model.Bongkar.NomorBC11 tanggal @Model.Bongkar.TanggalBC11 </td>
+              </tr>
+               <tr>
+       
+                 <td>Nama importir </td>
+                <td>:</td>
+                <td>@Model.Bongkar.PenggunaJasa.NamaPerusahaan</td>
+              </tr>
+              <tr>
+       
+                 <td>Tanggal dimulai s.d selesai pengawasan</td>
+                <td>:</td>
+                <td>Tanggal sd Tanggal</td>
+              </tr>
+             </table>    
+        </div>
+        </div>
+        
+        <div style="margin-top:20px">
+           <table class="table ctable">
+            <tr>
+                <th class="cth">
+                    No
+                </th>
+                <th class="cth">
+                    No BL/AWB
+                </th>
+                <th class="cth">
+                    Nama Barang Impor
+                </th>
+                <th class="cth">
+                    Jenis Kemasan dan Ukuran/Muatan
+                </th>
+                <th class="cth">
+                    Satuan
+                </th>
+                <th class="cth">
+                    Jumlah yang diberitahukan
+                </th>
+                <th class="cth">
+                    Kedapatan saat bongkar dan/atau timbun
+                </th>
+                <th class="cth">
+                    Selisih
+                </th>
+                <th class="cth">
+                    Keterangan
+                </th>
+            </tr>
+             @foreach (var o in @Model.Bongkar.PosBarangs)
+                            {
+            <tr>
+                <td class="ctd">
+                    
+                    
+                
+                </td>
+                <td class="ctd">
+                    @o.BL
+                </td>
+                <td class="ctd">
+                  
+                          @o.UraianBarang     
+                            
+                </td>
+                 <td class="ctd">
+                    @o.JenisKemasan
+                </td>
+                 <td class="ctd">
+                    @o.Satuan
+                </td>
+                 <td class="ctd">
+                    @o.Jumlah
+                </td>
+                 <td class="ctd">
+                    @o.Kedapatan
+                </td>
+                 <td class="ctd">
+                    @o.Selisih
+                </td>
+                 <td class="ctd">
+                    @o.Keterangan
+                </td>
+                          
+            </tr>
+            }
+        </table>
+        </div>
+<div>
+    <table style="margin-bottom:10px;text-align:left;border:0px">
+               
+              <tr>
+      
+                <td>Jenis Kemasan</td>
+                <td>:</td>
+                <td>(Petikemas curah/cairan/gas/palet/ dan lain-lain)</td>
+              </tr>
+              <tr>
+       
+                 <td>Muatan</td>
+                <td>:</td>
+                <td>(Isi/Kosongg)</td>
+              </tr>
+               
+             </table>    
+</div>
+<div>
+    <div style="margin-left:780px">
+        <p style="margin-bottom:100px">
+             Pejabat yang mengawasi (Pembongkaran dan/ atau Penimbunan)
+        </p>
+         <p style="margin-bottom:0px">
+            @Model.Bongkar.PenggunaJasa.NamaPerusahaan
+            <br />
+            @Model.Bongkar.PenggunaJasa.NPWP
+         </p>           
+                       
+                        
+                            
+                        
+                       
+                        
+
+                        
+                   
+
+               
+    </div>
+               
+
+            </div>
+    
+</body>
+</html>

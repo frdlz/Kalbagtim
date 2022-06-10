@@ -1,0 +1,295 @@
+﻿@model WBKNET.Models.Proker.Office.Bongkar
+
+@{
+    ViewData["Title"] = "Print";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    
+    <style>
+        .buttonfx {
+            width: 60px;
+        }
+
+        
+
+        p {
+            padding: 3px;
+            
+            
+        }
+
+        h4 {
+            margin-bottom: 1px;
+        }
+
+        .printDetails > div {
+            display: inline-block;
+        }
+
+        .flexrow {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex !important;
+        }
+
+            .flexrow > div {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+            }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .justify {
+            text-align: justify;
+        }
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+        
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+        hr {
+            border: 1px solid black;
+            margin-top:-12px;
+        }
+        table, td, th {
+            border: 1px transparent;
+            
+        }
+        table,th{
+            font-weight: normal;
+        }
+        
+        div.b {
+            text-align: left;
+        }
+        .dtable, .dtd, .dth {
+            border: 1px transparent;
+        }
+        .bigfont{
+            font-size:800%;
+        }
+        .dtable {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        .dth {
+            height: 70px;
+        }
+        hr.dotted {
+            border-top: 3px dotted #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="float-left">
+                
+            </div>
+            <div style="text-align:center">
+                <img src="~/img/Logo/logo.png" width="130" height="120" />
+                <p style="line-height: 1">
+
+                    <strong>
+                        <span style="font-size:17px">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</span><br />
+                        <span style="font-size:15px">
+                            DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+
+                            KANTOR WILAYAH DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+                            KALIMANTAN BAGIAN TIMUR<br />
+                            KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI TIPE MADYA<br />
+                            PABEAN B BALIKPAPAN<br />
+                        </span>
+                    </strong>
+                    <span style="font-size:8px">
+                        JALAN YOS SUDARSO NOMOR 9, BALIKPAPAN 76111<br />
+                        TELEPON (0542) 423422, 421393; FAKSIMILE (0542) 423951, 731212; LAMAN WWW.BEACUKAI.GO.ID<br />
+                        PUSAT KONTAK LAYANAN 1500225; SUREL BCBALIKPAPAN@KEMENKEU.GO.ID<br />
+                    </span>
+                </p>
+            </div> 
+        </div>
+    </header>
+    <hr />
+    <div style="margin-bottom:100px">
+        <div style="float:right">
+            @Model.TanggalPermohonan.ToShortDateString()
+        </div>
+        <div style="float:left">
+             <table style="margin-bottom:10px;width:100%; float:left; text-align:left">
+                            <tr>
+                            <th>Nomor</th>
+                            <td>:</td>
+                             <td>@Model.NamaSarkut</td>
+                          </tr>
+                           <tr>
+                            <th>Sifat</th>
+                            <td>:</td>
+                             <td>@Model.NamaSarkut</td>
+                          </tr>
+                           <tr>
+                            <th>Lampiran</th>
+                            <td>:</td>
+                             <td>-</td>
+                          </tr>
+                           <tr>
+                            <th>Hal</th>
+                            <td>:</td>
+                             <td>@Model.Hal</td>
+                          </tr>
+             </table>    
+        </div>
+        <p></p>
+        </div>
+        <div style="margin-top:20px">
+            <p style="text-indent: 30px;">Sehubungan dengan surat Saudara nomor @Model.NoPermohonan tanggal @Model.TanggalPermohonan.ToShortDateString() hal @Model.Hal yang diterima lengkap tanggal 17 Maret 2022, disampaikan hal-hal sebagai berikut :</p>
+        </div>
+   
+     
+         
+           
+       
+   
+<ol start="1">
+    <li class="justify">Bahwa Saudara selaku pengangkut mengajukan permohonan izin pembongkaran barang impor di tempat lain selain kawasan pabean dengan rincian sebagai berikut :</li>
+    <table style="width:100%; float:left; text-align:left">
+  <tr>
+      <th>-</th>
+    <td style="width:200px">Sarana Pengangkut</td>
+    <td>:</td>
+     <td>@Model.NamaSarkut</td>
+  </tr>
+  <tr>
+       <th>-</th>
+    <td>Nomor BC 1.1</td>
+    <td>:</td>
+    <td>@Model.NomorBC11</td>
+  </tr>
+  <tr>
+       <th>-</th>
+     <td>Bill of Lading / AWB</td>
+    <td>:</td>
+    <td>@Model.NoBL </td>
+  </tr>
+   <tr>
+        <th style="vertical-align:text-top">-</th>
+     <td style="vertical-align:text-top">Jumlah & Jenis Barang dalam manifest</td>
+    <td style="vertical-align:text-top">:</td>
+     <td style="text-align:left">
+                        @if (@Model.PosBarangs.Count == 1)
+                        {
+                            @foreach (var o in @Model.PosBarangs)
+                            {
+                                @o.Jumlah <span>&nbsp;</span> @o.UraianBarang
+                            }
+                        }
+                        else
+                        { <table>
+                                    
+                            @foreach (var o in @Model.PosBarangs)
+                            {
+                                <tr>
+                                    <td>-</td>
+                               <td>
+                                   @o.Jumlah
+                               </td>
+                               <td>
+                                   @o.UraianBarang
+                               </td>
+                                </tr>
+                                 
+                                    
+                             
+                            }
+                              
+                                </table>
+                        }
+                    </td>
+  </tr>
+   <tr>
+        <th>-</th>
+     <td>Bruto / Volume</td>
+    <td>:</td>
+     <td>@Model.Bruto / @Model.Volume</td>
+  </tr>
+  <tr>
+       <th>-</th>
+      <td>Lokasi Bongkar</td>
+    <td>:</td>
+     <td>@Model.DaftarLokasiPerijinan.NamaLokasi</td>
+  </tr>
+  <tr>
+       <th>-</th>
+     <td>Alasan Pembongkaran</td>
+    <td>:</td>
+    <td>@Model.Alasan</td>
+  </tr>
+</table>
+
+    <li class=justify>
+        Berdasarkan penelitian atas permohonan yang diajukan dan memperhatikan ketentuan - ketentuan Peraturan Menteri Keuangan Nomor 108/PMK.04.2020 tentang Pembongkaran dan Penimbunan Barang Impor, serta mempertimbangkan hasil pemeriksaan lokasi atas tempat pembongkaran dimaksud, disampaikan bahwa permohonan izin pembongkaran barang impor di tempat lain selain kawasan pabean yang Saudara ajukan dapat disetujui. 
+    </li>
+    <li class=justify>
+        Persetujuan ini diberikan dengan ketentuan:
+        <ol type="a"> 
+            <li class=justify>
+                Saudara wajib menyampaikan daftar bongkar yang berisi junmlah kemsan, jenis kemasan, dan/atau jumlah barang curah yang telah dibongkar , kepada Pejabat Bea dan Cukai di kantor pembongkaran dalam jangka waktu paling lama 24 (dua puluh empat) jam terhitung sejak pembongkaran selesai;
+            </li>
+            <li class=justify>
+                Saudara wajib membuat berita acara serah terima barang yang ditimbun di TPS atau tempat lain dengan pengusaha TPS atau orang yang bertanggung jawab atas tempat lain dimaksud, dan menyerahkan tembusan berita acara serah terima tersebut kepada Pejabat Bea dan Cukai di kantor pabean;
+            </li>
+            <li class=justify>
+                Saudara selaku pengangkut bertanggung jawab atas bea masuk yang terutang atas barang yang dibongkar di kawasan pabean atau tempat lain selain kawasan pabean.
+            </li>
+        </ol>
+    </li>
+</ol>
+<div>
+    Demikian disampaikan untuk menjadi perhatian
+</div>
+<div>
+    <div style="margin-left:550px">
+        <p style="margin-bottom:100px">
+             Kepala Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Balikpapan
+        </p>
+         <p style="margin-bottom:0px">
+            @Model.Kakap
+            <br />
+            
+         </p>           
+                       
+                        
+                            
+                        
+                       
+                        
+
+                        
+                   
+
+               
+    </div>
+               
+
+            </div>
+    
+</body>
+</html>

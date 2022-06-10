@@ -357,7 +357,7 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("JenisFile");
                 });
 
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.Appointment", b =>
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.Appointment", b =>
                 {
                     b.Property<string>("AppointmentID")
                         .HasColumnType("nvarchar(450)");
@@ -408,7 +408,7 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("Appointment");
                 });
 
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.LayananFrontdesk", b =>
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.LayananFrontdesk", b =>
                 {
                     b.Property<int>("LayananFrontdeskID")
                         .ValueGeneratedOnAdd()
@@ -507,9 +507,9 @@ namespace ProjectAlpha.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.Appointment", b =>
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.Appointment", b =>
                 {
-                    b.HasOne("WBKNET.Models.Frontdesk.LayananFrontdesk", "LayananFrontdesk")
+                    b.HasOne("ProjectAlpha.Models.Frontdesk.LayananFrontdesk", "LayananFrontdesk")
                         .WithMany("Appointments")
                         .HasForeignKey("LayananFrontdeskID");
                 });

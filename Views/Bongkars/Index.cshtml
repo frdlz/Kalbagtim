@@ -1,0 +1,309 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.BongkarViewModel
+
+@{
+    ViewData["Title"] = "Index";
+     Layout = "_LayoutLTEOffice";
+}
+
+<div class="card">
+    <div class="card-body">
+        <p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="card-title">
+    Pengguna Jasa
+</div>
+ <div class="col-md-12">
+<div class="row">
+   
+        <div class="col-md-6">
+            <table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>Status</th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkars) {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+               
+               
+            </td>
+            <td>
+                @if (item.Status == WBKNET.Models.Proker.Office.StatusBongkar.create)
+                        {
+                            <a asp-action="KirimIjin" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Kirim!"><i class="fas fa-user-secret"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Edit!"><i class="fas fa-user-secret"></i></a>
+                        }
+                        else
+                        {
+                             
+                        }
+               
+                <a asp-action="Details" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Detail!"><i class="fas fa-user-secret"></i></a>
+                
+            
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>Status</th>
+             <th></th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkars2) {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+               
+               
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.KK)
+               
+               
+            </td>
+            <td>
+                @if (item.Status == WBKNET.Models.Proker.Office.StatusBongkar.create)
+                        {
+                            <a asp-action="KirimIjin" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Kirim!"><i class="fas fa-user-secret"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Edit!"><i class="fas fa-user-secret"></i></a>
+                        }
+                        else
+                        {
+                             
+                        }
+               
+                <a asp-action="Details" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Detail!"><i class="fas fa-user-secret"></i></a>
+                
+            
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+   Kepala Kantor
+</div>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+           
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>Status</th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkarskakap) {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+               
+               
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BongkarID">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.BongkarID">Details</a> |
+                <a asp-action="SelesaiIjin" asp-route-id="@item.BongkarID">Selesai</a> |
+                <a asp-action="SelesaiIjin" asp-route-id="@item.BongkarID">Persetujuan</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+    Pabean
+</div>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+           
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>Status Ijin</th>
+            <th>Status proses</th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkarspabean) {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+               
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pabean)
+               
+               
+            </td>
+            <td>
+                
+                @if (item.Status == WBKNET.Models.Proker.Office.StatusBongkar.submit)
+                        {
+                            <a asp-action="PabeanTerima" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Terima!"><i class="fas fa-user-secret"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Edit!"><i class="fas fa-user-secret"></i></a>
+                        }
+                 @if (item.Status == WBKNET.Models.Proker.Office.StatusBongkar.terima)
+                            {
+                             <a asp-action="KirimP2" asp-route-id="@item.BongkarID">Kirim P2</a> 
+                             <a asp-action="KirimKK" asp-route-id="@item.BongkarID">Kirim Kakap</a> 
+                            }
+                 @if (item.Status == WBKNET.Models.Proker.Office.StatusBongkar.selesai)
+                            {
+                            <a asp-action="AddLapTimbun" asp-route-id="@item.BongkarID">lap</a> 
+                            }
+                <a asp-action="Details" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Detail!"><i class="fas fa-user-secret"></i></a>
+                <a asp-action="PrintPersetujuan" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Detail!"><i class="fas fa-user-secret"></i></a>
+                <a asp-action="AddConfirm" asp-route-id="@item.BongkarID" class="btn btn-sm btn-outline-secondary buttonfx" data-toggle="tooltip" title="Detail!"><i class="fas fa-user-secret"></i></a>
+                
+            
+            
+               
+               
+                
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+      <div class="card-title">
+   P2
+</div>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+           
+            <th>
+                Nomor Permohonan
+            </th>
+            <th>
+               Tanggal
+            </th>
+            <th>Status Ijin</th>
+            <th>Status Proses</th>
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bongkarsp2) {
+        <tr>
+            
+             <td>
+                @Html.DisplayFor(modelItem => item.NoPermohonan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalPermohonan)
+            </td>
+             
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+               
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.P2)
+               
+               
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BongkarID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BongkarID">Details</a> |
+                <a asp-action="AddPenlap" asp-route-id="@item.BongkarID">Add Penlap</a>|
+                <a asp-action="KirimPabean" asp-route-id="@item.BongkarID">Selesai</a> |
+               
+                
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

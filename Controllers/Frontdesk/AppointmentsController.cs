@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Data;
 using ProjectAlpha.Models;
-using WBKNET.Models.Frontdesk;
-using WBKNET.Models.Frontdesk.VM;
+using ProjectAlpha.Models.Frontdesk;
+using ProjectAlpha.Models.Frontdesk.VM;
 
 namespace ProjectAlpha.Controllers
 {

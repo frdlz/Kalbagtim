@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WBKNET.Models.Proker.Dash.TopLokasi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bulan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JumlahPIB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LapYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bulan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JumlahPIB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LapYear.Year)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TopLokasiID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TopLokasiID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TopLokasiID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

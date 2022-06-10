@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WBKNET.Models.Frontdesk.VM
+namespace ProjectAlpha.Models.Frontdesk.VM
 {
     public class ViewModel
     {

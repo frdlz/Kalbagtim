@@ -231,6 +231,73 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.Appointment", b =>
+                {
+                    b.Property<string>("AppointmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Deskripsi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("LayananFrontdeskID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NamaLayanan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomorApp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ProcessDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("StatusFrontdesk")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Tanggal")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Tujuan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AppointmentID");
+
+                    b.HasIndex("LayananFrontdeskID");
+
+                    b.ToTable("Appointment");
+                });
+
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.LayananFrontdesk", b =>
+                {
+                    b.Property<int>("LayananFrontdeskID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NamaLayanan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LayananFrontdeskID");
+
+                    b.ToTable("LayananFrontdesk");
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.Narsum", b =>
                 {
                     b.Property<int>("NarsumID")
@@ -397,73 +464,6 @@ namespace ProjectAlpha.Migrations
                     b.ToTable("JenisFile");
                 });
 
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.Appointment", b =>
-                {
-                    b.Property<string>("AppointmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Deskripsi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("LayananFrontdeskID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nama")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NamaLayanan")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomorApp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ProcessDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("StatusFrontdesk")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Tanggal")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Tujuan")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AppointmentID");
-
-                    b.HasIndex("LayananFrontdeskID");
-
-                    b.ToTable("Appointment");
-                });
-
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.LayananFrontdesk", b =>
-                {
-                    b.Property<int>("LayananFrontdeskID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NamaLayanan")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("LayananFrontdeskID");
-
-                    b.ToTable("LayananFrontdesk");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -515,6 +515,13 @@ namespace ProjectAlpha.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProjectAlpha.Models.Frontdesk.Appointment", b =>
+                {
+                    b.HasOne("ProjectAlpha.Models.Frontdesk.LayananFrontdesk", "LayananFrontdesk")
+                        .WithMany("Appointments")
+                        .HasForeignKey("LayananFrontdeskID");
+                });
+
             modelBuilder.Entity("ProjectAlpha.Models.P2KP.ViewModel.MateriP2kp", b =>
                 {
                     b.HasOne("ProjectAlpha.Models.ViewModel.JenisFile", "jenisFile")
@@ -546,13 +553,6 @@ namespace ProjectAlpha.Migrations
                         .HasForeignKey("P2kpID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WBKNET.Models.Frontdesk.Appointment", b =>
-                {
-                    b.HasOne("WBKNET.Models.Frontdesk.LayananFrontdesk", "LayananFrontdesk")
-                        .WithMany("Appointments")
-                        .HasForeignKey("LayananFrontdeskID");
                 });
 #pragma warning restore 612, 618
         }

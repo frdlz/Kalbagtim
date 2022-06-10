@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WBKNET.Models.Frontdesk.Appointment>
+﻿@model IEnumerable<ProjectAlpha.Models.Frontdesk.Appointment>
 
 @{
     ViewData["Title"] = "Index";
@@ -70,7 +70,7 @@
 
                                                             @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Pendok") || a.NamaLayanan.Contains("PDE")).Take(5))
                                                             {
-                                                                @if (@item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
+                                                                @if (@item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.proses)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-info">
@@ -82,7 +82,7 @@
                                                                     </li>
 
                                                                 }
-                                                                @if (item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.mulai)
+                                                                @if (item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.mulai)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-warning">
@@ -104,7 +104,7 @@
 
                                                             @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Informasi") || a.NamaLayanan.Contains("Manifest") || a.NamaLayanan.Contains("Analyzing") || a.NamaLayanan.Contains("Lainnya")).Take(5))
                                                             {
-                                                                @if (@item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
+                                                                @if (@item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.proses)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-info">
@@ -116,7 +116,7 @@
                                                                     </li>
 
                                                                 }
-                                                                @if (item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.mulai)
+                                                                @if (item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.mulai)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-warning">
@@ -138,7 +138,7 @@
 
                                                             @foreach (var item in Model.Where(a => a.NamaLayanan.Contains("Surat")).Take(5))
                                                             {
-                                                                @if (@item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
+                                                                @if (@item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.proses)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-info">
@@ -150,7 +150,7 @@
                                                                     </li>
 
                                                                 }
-                                                                @if (item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.mulai)
+                                                                @if (item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.mulai)
                                                                 {
                                                                     <li class="mb-1" style="margin-left:-20px">
                                                                         <button style="width:150px" class="btn btn-sm btn-sm btn-warning">

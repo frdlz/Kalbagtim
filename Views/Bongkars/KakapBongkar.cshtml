@@ -1,0 +1,110 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.BongkarKakapViewModel
+
+@{
+    ViewData["Title"] = "Index";
+     Layout = "_LayoutLTEOffice";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js" integrity="sha256-arMsf+3JJK2LoTGqxfnuJPFTU4hAK57MtIPdFpiHXOU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD8vyZD5EarteYb437sxN_D2sUT513nu0"></script>
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <style>
+        .whitelink {
+            color: white
+        }
+        .nameheader
+        {
+            font-size:10px
+        }
+        .countheader
+        {
+            font-size:30px
+        }
+    </style>
+
+</head>
+
+<hr />
+<div class="card">
+    <div class="card-header bg-info">
+        <div class="card-title">
+            Proses
+        </div>
+    </div>
+    <div class="card-body">
+        
+<table class="table table-striped table-bordered dt-responsive nowrap" style="width:100%" id="ijinprosesKakapDatatable">
+    <thead>
+        <tr>
+           <th>
+                BongkarID
+            </th>
+            <th>
+                NoPermohonan
+            </th>
+            <th>
+               TanggalPermohonan
+            </th>
+            
+             <th>
+                 Status
+             </th>
+             <th>Statuskakap</th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th></th>
+        </tr>
+    </thead>
+   
+</table>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header bg-success">
+        <div class="card-title">
+            Selesai
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered dt-responsive nowrap" style="width:100%" id="ijinselesaiKakapDatatable">
+    <thead>
+        <tr>
+           <th>
+                BongkarID
+            </th>
+            <th>
+                NoPermohonan
+            </th>
+            <th>
+               TanggalPermohonan
+            </th>
+            
+             <th>Status</th>
+             <th>Statuskaakp</th>
+             <th></th>
+             <th></th>
+        </tr>
+    </thead>
+    
+</table>
+
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/Bongkars/proseskakap.js"></script>
+}

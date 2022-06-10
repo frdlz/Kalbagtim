@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectAlpha.Data;
-using WBKNET.Models.Frontdesk;
+using ProjectAlpha.Models.Frontdesk;
 
 namespace ProjectAlpha.Controllers.Frontdesk
 {

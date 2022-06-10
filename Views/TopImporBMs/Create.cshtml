@@ -1,0 +1,41 @@
+﻿@model WBKNET.Models.Proker.Dash.TopImporBM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TopImporBM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bulan" class="control-label"></label>
+                <input asp-for="Bulan" class="form-control" />
+                <span asp-validation-for="Bulan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaImortir" class="control-label"></label>
+                <input asp-for="NamaImortir" class="form-control" />
+                <span asp-validation-for="NamaImortir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BM" class="control-label"></label>
+                <input asp-for="BM" class="form-control" />
+                <span asp-validation-for="BM" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[5.8.5, )"
             },
+            "Google.DataTable.Net.Wrapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.21, )"
@@ -73,6 +77,14 @@
               "target": "Package",
               "version": "[2.5.5, )"
             },
+            "Rotativa": {
+              "target": "Package",
+              "version": "[1.7.4-rc, )"
+            },
+            "Rotativa.AspNetCore": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -80,6 +92,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.3, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.18, )"
             }
           },
           "imports": [

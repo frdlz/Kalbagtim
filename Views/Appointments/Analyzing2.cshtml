@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WBKNET.Models.Frontdesk.Appointment>
+﻿@model IEnumerable<ProjectAlpha.Models.Frontdesk.Appointment>
 
 @{
     ViewData["Title"] = "Index";
@@ -87,14 +87,14 @@
                                 @Html.DisplayFor(modelItem => item.StatusFrontdesk)
                             </td>
                             <td label="Act">
-                                @if (item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.mulai)
+                                @if (item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.mulai)
                                 {
 
                                     <a asp-action="Proses" asp-route-id="@item.AppointmentID" class="btn btnfx btn-success"><i class="fas fa-play"></i></a>
 
                                 }
 
-                                @if (item.StatusFrontdesk == WBKNET.Models.Frontdesk.Appointment.status.proses)
+                                @if (item.StatusFrontdesk == ProjectAlpha.Models.Frontdesk.Appointment.status.proses)
                                 {
 
                                     <a asp-action="Selesai" asp-route-id="@item.AppointmentID" class="btn btnfx btn-danger"><i class="fas fa-stop"></i></a>

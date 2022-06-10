@@ -1,0 +1,81 @@
+﻿@model WBKNET.Models.Proker.Office.PosBarang
+
+@{
+    ViewData["Title"] = "Add Barang";
+     Layout = "_LayoutLTEOffice";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="AddPosBarang">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="BongkarID" class="form-control" />
+            <div class="form-group">
+                <label asp-for="NoPos" class="control-label"></label>
+                <input asp-for="NoPos" class="form-control" />
+                <span asp-validation-for="NoPos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BL" class="control-label"></label>
+                <input asp-for="BL" class="form-control" />
+                <span asp-validation-for="BL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jumlah" class="control-label"></label>
+                <input asp-for="Jumlah" class="form-control" />
+                <span asp-validation-for="Jumlah" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JenisKemasan" class="control-label"></label>
+                <input asp-for="JenisKemasan" class="form-control" />
+                <span asp-validation-for="JenisKemasan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UraianBarang" class="control-label"></label>
+                <input asp-for="UraianBarang" class="form-control" />
+                <span asp-validation-for="UraianBarang" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+        
+    </div>
+        </div>
+         <div class="col-md-6 col-sm-6 col-lg-6">
+            
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                         @await Component.InvokeAsync("PosBarang", new { BongkarID = @Model.BongkarID })
+                     
+                    </div>
+                   
+                </div>
+
+           
+            
+        </div>
+           
+             
+        </div>
+    </div>
+</div>
+<hr />
+<a asp-action="PenggunaJasaBongkar">Back to List</a>
+   
+   
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/bongkars.js"></script>
+}

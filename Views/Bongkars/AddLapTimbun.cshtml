@@ -1,0 +1,63 @@
+﻿@using WBKNET.Models.Proker.Office
+@model WBKNET.Models.Proker.Office.LapTimbun
+
+@{
+    ViewData["Title"] = "Add Barang";
+     Layout = "_LayoutLTEOffice";
+}
+
+<hr />
+
+    <div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddLapTimbun">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="BongkarID" class="form-control" />
+           
+            
+            <div class="form-group">
+                <label asp-for="NomorLap" class="control-label"></label>
+                <input asp-for="NomorLap" class="form-control" />
+                <span asp-validation-for="NomorLap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tanggal" class="control-label"></label>
+                <input asp-for="Tanggal" class="form-control" />
+                <span asp-validation-for="Tanggal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keterangan" class="control-label"></label>
+                <input asp-for="Keterangan" class="form-control" />
+                <span asp-validation-for="Keterangan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaPejabat" class="control-label"></label>
+                <input asp-for="NamaPejabat" class="form-control" />
+                <span asp-validation-for="NamaPejabat" class="text-danger"></span>
+            </div>
+            
+           
+             
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        @await Component.InvokeAsync("LapTimbun", new { BongkarID = @Model.BongkarID })  
+    </div>
+</div>
+
+ 
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/bongkars.js"></script>
+}

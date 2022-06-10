@@ -1,0 +1,243 @@
+﻿@model WBKNET.Models.Proker.Office.ViewModel.PrintBAViewModel
+
+@{
+    ViewData["Title"] = "Print";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    
+    <style>
+        .buttonfx {
+            width: 60px;
+        }
+
+        
+
+        p {
+            padding: 3px;
+            
+            
+        }
+
+        h4 {
+            margin-bottom: 1px;
+        }
+
+        .printDetails > div {
+            display: inline-block;
+        }
+
+        .flexrow {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex !important;
+        }
+
+            .flexrow > div {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+            }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .justify {
+            text-align: justify;
+        }
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+        
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+        hr {
+            border: 1px solid black;
+            margin-top:-12px;
+        }
+        table, td, th {
+            border: 1px transparent;
+            
+        }
+        table,th{
+            font-weight: normal;
+        }
+        
+        div.b {
+            text-align: left;
+        }
+        .dtable, .dtd, .dth {
+            border: 1px transparent;
+        }
+        .bigfont{
+            font-size:800%;
+        }
+        .dtable {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        .dth {
+            height: 70px;
+        }
+        hr.dotted {
+            border-top: 3px dotted #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="float-left">
+                
+            </div>
+            <div style="text-align:center">
+                <img src="~/img/Logo/logo.png" width="130" height="120" />
+                <p style="line-height: 1">
+
+                    <strong>
+                        <span style="font-size:17px">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</span><br />
+                        <span style="font-size:15px">
+                            DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+
+                            KANTOR WILAYAH DIREKTORAT JENDERAL BEA DAN CUKAI<br />
+                            KALIMANTAN BAGIAN TIMUR<br />
+                            KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI TIPE MADYA<br />
+                            PABEAN B BALIKPAPAN<br />
+                        </span>
+                    </strong>
+                    <span style="font-size:8px">
+                        JALAN YOS SUDARSO NOMOR 9, BALIKPAPAN 76111<br />
+                        TELEPON (0542) 423422, 421393; FAKSIMILE (0542) 423951, 731212; LAMAN WWW.BEACUKAI.GO.ID<br />
+                        PUSAT KONTAK LAYANAN 1500225; SUREL BCBALIKPAPAN@KEMENKEU.GO.ID<br />
+                    </span>
+                </p>
+            </div> 
+        </div>
+    </header>
+    <hr />
+    <div style="margin-bottom:20px">
+      
+        <div style="text-align:center">
+            <p style="line-height: 0;font-size:18px"><b>
+                SURAT TUGAS
+                
+                </b>
+             </p>
+             <p>
+                 NOMOR ST-@Model.PenLap.NoBA/PL/KBC.160102/@Model.PenLap.TanggalBA.Year
+             </p>
+               
+             
+        </div>
+        </div>
+        <div style="margin-top:20px">
+            <p style="text-indent: 30px;">Sehubungan dengan surat permohonan @Model.Bongkar.PenggunaJasa.NamaPerusahaan nomor @Model.Bongkar.NoPermohonan tanggal @Model.Bongkar.TanggalPermohonan.ToShortDateString() hal @Model.Bongkar.Hal, dengan ini kami menugaskan, </div>
+       
+         <table style="margin-left: 30px;width:100%;">
+  
+          <tr>
+            <td style="width:5%">1</td>
+            <td style="width:30%">Nama / NIP</td>
+            <td>:</td>
+            <td>@Model.PenLap.NamaPetugas1 / @Model.PenLap.Petugas1</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Pangkat / Golongan</td>
+            <td>:</td>
+            <td>@Model.PenLap.Pangkat1 / @Model.PenLap.Golongan1</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Jabatan</td>
+            <td>:</td>
+            <td>@Model.PenLap.Jabatan1</td>
+          </tr>
+          <tr>
+            <td style="width:5%">2</td>
+            <td style="width:30%">Nama / NIP</td>
+            <td>:</td>
+            <td>@Model.PenLap.NamaPetugas2 / @Model.PenLap.Petugas2</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Pangkat / Golongan</td>
+            <td>:</td>
+            <td>@Model.PenLap.Pangkat2 / @Model.PenLap.Golongan2</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Jabatan</td>
+            <td>:</td>
+            <td>@Model.PenLap.Jabatan2</td>
+          </tr>
+        </table>
+        <div>
+            <p>
+                Untuk : Melakukan pemeriksaan lokasi pembongkaran atas nama @Model.Bongkar.PenggunaJasa.NamaPerusahaan yang akan dilaksanakan pada tanggal @Model.PenLap.TanggalBA.ToShortDateString() s.d selesai dengan alamat di @Model.Bongkar.DaftarLokasiPerijinan.NamaLokasi.
+
+            </p>
+            
+<div>
+    <p style="text-indent:30px">
+        Demikian Surat Tugas ini dibuat untuk dilaksanakan dengan penuh tanggung jawab.
+    </p>
+    
+</div>
+<div>
+    <div style="float:right;margin-right:300px">
+        <p style="margin-bottom:100px">
+             Ditetapkan di Balikpapan<br />
+            Pada tanggal, @Model.PenLap.TanggalBA.ToShortDateString()<br />
+            Kepala Kantor<br />
+            u.b.<br />
+            Kasi Penindakan dan Penyidikan
+        </p>
+         <p style="margin-bottom:100px">
+            @Model.PenLap.Kasi
+            <br />
+           
+         </p>
+         
+                       
+                        
+                            
+                        
+                       
+                        
+
+                        
+                   
+
+               
+    </div>
+    <div style="float:left">
+        
+      
+                       
+                        
+
+                        
+                   
+
+               
+    </div>           
+
+            </div>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@model WBKNET.Models.Proker.Office.Bongkar
+
+@{
+    ViewData["Title"] = "Edit";
+     Layout = "_LayoutLTEOffice";
+}
+
+<h1>Edit</h1>
+
+<h4>Bongkar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="KirimPabean">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BongkarID" />
+            <div class="form-group">
+                <label asp-for="NomorBC11" class="control-label"></label>
+                <input asp-for="NomorBC11" class="form-control" />
+                <span asp-validation-for="NomorBC11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalBC11" class="control-label"></label>
+                <input asp-for="TanggalBC11" class="form-control" />
+                <span asp-validation-for="TanggalBC11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaSarkut" class="control-label"></label>
+                <input asp-for="NamaSarkut" class="form-control" />
+                <span asp-validation-for="NamaSarkut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoBL" class="control-label"></label>
+                <input asp-for="NoBL" class="form-control" />
+                <span asp-validation-for="NoBL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalBL" class="control-label"></label>
+                <input asp-for="TanggalBL" class="form-control" />
+                <span asp-validation-for="TanggalBL" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="Bruto" class="control-label"></label>
+                <input asp-for="Bruto" class="form-control" />
+                <span asp-validation-for="Bruto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volume" class="control-label"></label>
+                <input asp-for="Volume" class="form-control" />
+                <span asp-validation-for="Volume" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Alasan" class="control-label"></label>
+                <input asp-for="Alasan" class="form-control" />
+                <span asp-validation-for="Alasan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

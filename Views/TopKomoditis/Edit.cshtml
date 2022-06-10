@@ -1,0 +1,47 @@
+﻿@model WBKNET.Models.Proker.Dash.TopKomoditi
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TopKomoditi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TopKomoditiID" />
+            <div class="form-group">
+                <label asp-for="Nama" class="control-label"></label>
+                <input asp-for="Nama" class="form-control" />
+                <span asp-validation-for="Nama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Devisa" class="control-label"></label>
+                <input asp-for="Devisa" class="form-control" />
+                <span asp-validation-for="Devisa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tonnase" class="control-label"></label>
+                <input asp-for="Tonnase" class="form-control" />
+                <span asp-validation-for="Tonnase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bulan" class="control-label"></label>
+                <input asp-for="Bulan" class="form-control" />
+                <span asp-validation-for="Bulan" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

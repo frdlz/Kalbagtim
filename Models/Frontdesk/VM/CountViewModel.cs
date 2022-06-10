@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WBKNET.Models.Frontdesk
+namespace ProjectAlpha.Models.Frontdesk
 {
     public class CountViewModel
     {
